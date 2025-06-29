@@ -9,17 +9,43 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Davia Bargellini Time Detective.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Davia Bargellini Time Detective" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="6DF1E6E1-715C-4614-95EF-3369D2E9DC65" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Enter Museum" tags="" position="700,325" size="100,100">It&#39;s a beautiful sunny afternoon in Bologna. You&#39;ve decided to spend the day doing something cultural, and the famous Davia Bargellini Museum of Industrial Art seems like the perfect choice.
+<tw-storydata name="Davia Bargellini Time Detective" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="6DF1E6E1-715C-4614-95EF-3369D2E9DC65" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+    /* --- The Background Image --- */
+    /* CORRECTED: The filename now perfectly matches your file! */
+    background-image: url("assets/images/museumbg.jpg");
+
+    /* This makes the image cover the entire screen without repeating or stretching weirdly. */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+tw-passage {
+    /* --- The Text Readability Layer --- */
+    /* This adds a semi-transparent black box behind your text, but in front of the background image. */
+    /* 0.5 is the transparency. You can change it from 0.0 (fully transparent) to 1.0 (fully opaque). */
+    background-color: rgba(0, 0,0, 0.5);
+
+    /* This makes the main text color white, which is easier to read on a dark overlay. */
+    color: white;
+
+    /* This adds a little padding so the text isn't touching the edges of the box. */
+    padding: 2em;
+    
+    /* This makes the corners of the text box slightly rounded. */
+    border-radius: 10px;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Enter Museum" tags="" position="700,325" size="100,100">It&#39;s a beautiful sunny afternoon in Bologna. You&#39;ve decided to spend the day doing something cultural, and the famous Davia Bargellini Museum of Industrial Art seems like the perfect choice.
 
 You arrive at the grand entrance, pushing open the heavy oak doors. A receptionist at a small desk looks up and gives you a welcoming smile.
 
-[[Approach the reception desk to sign in]]</tw-passagedata><tw-passagedata pid="2" name="Approach the reception desk to sign in" tags="" position="825,300" size="100,100">(set: $playerName to (prompt: &quot;The receptionist smiles. \&quot;Welcome to the Davia Bargellini Museum! Could you please sign our guestbook? What is your name?\&quot;&quot;, &quot;Your Name&quot;))
+[[Approach the reception desk to sign in]]</tw-passagedata><tw-passagedata pid="2" name="Approach the reception desk to sign in" tags="" position="825,325" size="100,100">(set: $playerName to (prompt: &quot;The receptionist smiles. \&quot;Welcome to the Davia Bargellini Museum! Could you please sign our guestbook? What is your name?\&quot;&quot;, &quot;Your Name&quot;))
 
 You write down your name, &quot;$playerName&quot;, in the large leather-bound book.
 
 The receptionist nods. &quot;Thank you, $playerName. Please, enjoy your visit.&quot;
 
-[[Enter the main hall]]</tw-passagedata><tw-passagedata pid="3" name="Enter the main hall" tags="" position="825,425" size="100,100">&lt;p&gt;You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.&lt;/p&gt;
+[[Enter the main hall]]</tw-passagedata><tw-passagedata pid="3" name="Enter the main hall" tags="" position="975,325" size="100,100">&lt;p&gt;You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.&lt;/p&gt;
 
 &lt;div style=&quot;display: flex; align-items: center; border: 2px solid #8B4513; background-color: #F5F5DC; padding: 20px;&quot;&gt;
 ... (the rest of your poster code) ...
