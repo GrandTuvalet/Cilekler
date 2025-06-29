@@ -45,11 +45,45 @@ You write down your name, &quot;$playerName&quot;, in the large leather-bound bo
 
 The receptionist nods. &quot;Thank you, $playerName. Please, enjoy your visit.&quot;
 
-[[Enter the main hall]]</tw-passagedata><tw-passagedata pid="3" name="Enter the main hall" tags="" position="975,325" size="100,100">&lt;p&gt;You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.&lt;/p&gt;
+[[Examine the poster]]</tw-passagedata><tw-passagedata pid="3" name="Examine the poster" tags="" position="975,325" size="100,100">(if:visits is 1)[&lt;p&gt;You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.&lt;/p&gt;]
 
 &lt;div style=&quot;display: flex; align-items: center; border: 2px solid #8B4513; background-color: #F5F5DC; padding: 20px;&quot;&gt;
 ... (the rest of your poster code) ...
-&lt;/div&gt;</tw-passagedata></tw-storydata>
+&lt;/div&gt;
+
+You lean closer to the bulletin board. The poster&#39;s paper is thick, and the design looks appropriately old-fashioned, as if from the 1970s.
+
+But your eye catches something impossible.
+
+In the bottom-right corner, nestled amongst the vintage graphics, is a small, perfectly sharp QR code. It&#39;s completely anachronistic—a modern digital tag on a decades-old poster. This is no ordinary &quot;Help Wanted&quot; sign. This is a message.
+
+What do you do?
+
+[[Use your phone to scan the QR code.]]
+[[Step back from the poster. You&#39;re just here for a quiet day at the museum.]]</tw-passagedata><tw-passagedata pid="4" name="Use your phone to scan the QR code." tags="" position="1150,200" size="100,100">You glance around. The few other visitors in the hall are absorbed in the grand paintings on the walls. No one is paying you any attention.
+
+You discreetly pull out your smartphone, open a scanner app, and point it at the QR code.
+
+The phone buzzes instantly. It doesn&#39;t open a website. Instead, it displays a simple, stark text message on a black background, the kind you&#39;d see in an old spy movie.
+
+&lt;div style=&quot;background-color: #111; color: #00FF41; font-family: &#39;Courier New&#39;, monospace; padding: 20px; border: 2px solid #333; margin: 1em 0; border-radius: 5px;&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;&amp;gt; SECURE MESSAGE RECEIVED&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;&amp;gt; The pigeon is in the coop.&lt;/p&gt;
+    &lt;p&gt;&amp;gt; A friend is waiting in the Portrait room..&lt;/p&gt;
+    &lt;p&gt;&amp;gt; PASSPHRASE: The clock ticks backwards.&lt;/p&gt;
+&lt;/div&gt;
+
+You quickly lock your phone and slip it back into your pocket, your heart pounding.
+
+You have your objective.
+
+[[Find the mysterious &quot;friend&quot; in the portrait room..]]</tw-passagedata><tw-passagedata pid="5" name="Step back from the poster. You&#39;re just here for a quiet day at the museum." tags="" position="1125,500" size="100,100">You shake your head and take a step back. &quot;Not my business,&quot; you decide. A secret mission is the last thing you want on your quiet afternoon off. You&#39;re here to see the art, and that&#39;s exactly what you&#39;ll do.
+
+You spend the next few hours wandering through the grand halls of the museum. You admire the intricate woodcarvings in the furniture exhibits, study the early examples of industrial machinery, and appreciate the beautiful frescoes on the high ceilings. It&#39;s a wonderful, peaceful day.
+
+[[As evening approaches...]]</tw-passagedata><tw-passagedata pid="6" name="As evening approaches..." tags="" position="1350,450" size="100,100">The museum begins to close for the evening, and you head for the exit, feeling culturally enriched. The visit was lovely, but a strange feeling nags at the back of your mind... a feeling of a missed opportunity. That out-of-place QR code... it seemed important.
+
+Maybe you should have looked closer.(t8n-depart:&quot;dissolve&quot;)[[Maybe you should have looked closer.-&gt;Examine the poster]]</tw-passagedata><tw-passagedata pid="7" name="Find the mysterious &quot;friend&quot; in the portrait room.." tags="" position="1450,200" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
