@@ -60,7 +60,7 @@ In the bottom-right corner, nestled amongst the vintage graphics, is a small, pe
 What do you do?
 
 [[Use your phone to scan the QR code.]]
-[[Step back from the poster. You&#39;re just here for a quiet day at the museum.]]</tw-passagedata><tw-passagedata pid="4" name="Use your phone to scan the QR code." tags="" position="1150,200" size="100,100">You glance around. The few other visitors in the hall are absorbed in the grand paintings on the walls. No one is paying you any attention.
+(if:visits is 1)[[Step back from the poster. You&#39;re just here for a quiet day at the museum.]]</tw-passagedata><tw-passagedata pid="4" name="Use your phone to scan the QR code." tags="" position="1250,200" size="100,100">You glance around. The few other visitors in the hall are absorbed in the grand paintings on the walls. No one is paying you any attention.
 
 You discreetly pull out your smartphone, open a scanner app, and point it at the QR code.
 
@@ -83,7 +83,99 @@ You spend the next few hours wandering through the grand halls of the museum. Yo
 
 [[As evening approaches...]]</tw-passagedata><tw-passagedata pid="6" name="As evening approaches..." tags="" position="1350,450" size="100,100">The museum begins to close for the evening, and you head for the exit, feeling culturally enriched. The visit was lovely, but a strange feeling nags at the back of your mind... a feeling of a missed opportunity. That out-of-place QR code... it seemed important.
 
-Maybe you should have looked closer.(t8n-depart:&quot;dissolve&quot;)[[Maybe you should have looked closer.-&gt;Examine the poster]]</tw-passagedata><tw-passagedata pid="7" name="Find the mysterious &quot;friend&quot; in the portrait room.." tags="" position="1450,200" size="100,100"></tw-passagedata></tw-storydata>
+Maybe you should have looked closer.(t8n-depart:&quot;dissolve&quot;)[[Maybe you should have looked closer.-&gt;Examine the poster]]</tw-passagedata><tw-passagedata pid="7" name="Find the mysterious &quot;friend&quot; in the portrait room.." tags="" position="1475,125" size="100,100">The air grows cooler as you enter the sculpture wing. The ceiling is high and vaulted, and your footsteps echo on the marble floor. In the center of the room, under a single, dramatic spotlight, is the &#39;Lamentation over the Dead Christ&#39;. The raw grief carved into the terracotta figures is breathtaking and unnerving.
+
+Your mission was to find a &quot;friend&quot; here, but you are completely alone in the echoing hall.
+
+Or are you?
+
+On the wall flanking the sculpture, two large, formal portraits hang in ornate frames. They depict members of the Bargellini family from centuries past. As you watch, a faint, ethereal (link: &quot;gleam&quot;)[A soft, golden light begins to pulse gently from within both paintings, illuminating the stern face of the man and the wise face of the woman.] of light catches your eye.
+
+Then, you hear it. A whisper that seems to come from all around you, yet from nowhere at all. A voice both male and female, layered together.
+
+&quot;...$playerName...&quot;
+
+It&#39;s your name. Both portraits are calling to you. They are the contacts. You must choose your guide.
+
+[[Make your choice]] </tw-passagedata><tw-passagedata pid="8" name="Approach the portrait of the man." tags="" position="1925,325" size="100,100">(set: $guide to &quot;male&quot;)
+(set: $guideName to &quot;The Hunter&quot;)
+(set: $guidePronoun to &quot;he&quot;)
+(set: $guidePossessive to &quot;his&quot;)
+(set: $guideAvatar to &quot;assets/images/hunter_portrait.png&quot;)
+
+As you step towards the chosen portrait, the golden light intensifies, spilling from the frame onto the marble floor. The painted image shimmers, and a figure detaches itself from the canvas, coalescing into a solid, translucent form beside you.
+
+[
+	His voice is steady, echoing slightly as if from a great distance. &quot;$playerName. At last. We have watched the centuries turn to dust, searching for a mind sharp enough, a spirit from the correct temporal frequency.
+
+	A rogue intelligence, an AI that calls itself the Artisan, has breached the walls of time. It doesn&#39;t destroy history—it &#39;corrects&#39; it, subtly replacing key items in our past, unraveling our reality thread by thread. Its canvas is history, and its brushstrokes are paradoxes.
+
+	It has started here, in our home, using the artworks of the Bargellini family as its twisted medium. We need your eyes, untainted by these new, false memories, to spot the anomalies—the digital fingerprints it has left on our analog world.
+
+	Find the items that do not belong. Restore our legacy. You are the anchor we must use to steady the storm. Save the timeline... save us.&quot;
+]
+
+$guideName gestures towards a small, unmarked door behind the main sculpture.&quot;The first anomaly has already been detected. &quot;
+
+  [[This way. There is no time to waste.-&gt;First Anomaly]]
+
+
+
+
+</tw-passagedata><tw-passagedata pid="9" name="Approach the portrait of the woman." tags="" position="1925,100" size="100,100">(set: $guide to &quot;female&quot;)
+(set: $guideName to &quot;The Archivist&quot;)
+(set: $guidePronoun to &quot;she&quot;)
+(set: $guidePossessive to &quot;her&quot;)
+(set: $guideAvatar to &quot;assets/images/doglady.png&quot;)
+
+
+[[This way. There is no time to waste.-&gt;First Anomaly]]
+</tw-passagedata><tw-passagedata pid="10" name="Make your choice" tags="" position="1750,225" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
+    &lt;p&gt;You are split between the timelines. You stand in two olaces at the same time. You find yourself in front of &#39;The Hunter&#39; and &#39;The Lady With The Dog&#39;.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&quot;...$playerName...&quot;&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;The figures in the paintings seem to look directly at you, offering a choice that will define your path. You must choose your guide.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;display: flex; justify-content: space-around; align-items: flex-start; margin-top: 20px;&quot;&gt;
+
+    &lt;div class=&quot;choice-card&quot; style=&quot;flex: 1; text-align: center; margin: 0 10px;&quot;&gt;
+        &lt;img src=&quot;assets/images/doglady.png&quot; alt=&quot;The Archivist&quot; style=&quot;width: 100%; max-width: 250px; border: 0px solid white;&quot;&gt;
+        &lt;h3 style=&quot;color: #E6D8AD; margin: 0; padding-top: 10px;&quot;&gt;The Lady With The Dog&lt;/h3&gt;
+        &lt;p style=&quot;font-style: italic; min-height: 100px;&quot;&gt;&quot;History is a library of fragile pages. I need a careful reader to help me find the words that have been rewritten.&quot;&lt;/p&gt;
+        &lt;div style=&quot;background-color: #E6D8AD; color: #333; padding: 10px 15px; border-radius: 5px; cursor: pointer; display: inline-block;&quot;&gt;
+            [[Choose The Archivist-&gt;Approach the portrait of the woman.]]
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;choice-card&quot; style=&quot;flex: 1; text-align: center; margin: 0 10px;&quot;&gt;
+        &lt;img src=&quot;assets/images/hunter_portrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%; max-width: 250px; border: 0px solid white;&quot;&gt;
+        
+        &lt;h3 style=&quot;color: #E6D8AD; margin: 0; padding-top: 10px;&quot;&gt;The Hunter&lt;/h3&gt;
+        &lt;p style=&quot;font-style: italic; min-height: 100px;&quot;&gt;&quot;The timeline is a wilderness, full of false trails. I need a sharp-eyed tracker to help me hunt the paradoxes.&quot;&lt;/p&gt;
+        &lt;div style=&quot;background-color: #E6D8AD; color: #333; padding: 10px 15px; border-radius: 5px; cursor: pointer; display: inline-block;&quot;&gt;
+            [[Choose The Hunter-&gt;Approach the portrait of the man.]]
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="First Anomaly" tags="" position="2150,225" size="100,100">&lt;div style=&quot;width: 120px; /* You can adjust the size */&quot;&gt;
+    &lt;img @src=&quot;$guideAvatar&quot; alt=$guideName&quot; style=&quot;width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;&quot;&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&quot;text-box&quot; style=&quot;border: 1px solid #E6D8AD; background-color: rgba(0,0,0,0.4); color: white; padding: 15px; border-radius: 5px; margin-top: 20px;&quot;&gt;
+    &lt;strong&gt;$guideName:&lt;/strong&gt;
+    &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;This is where the guide&#39;s first line of dialogue goes. You just need to change this text.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;text-box&quot; style=&quot;border: 1px solid #E6D8AD; background-color: rgba(0,0,0,0.4); color: white; padding: 15px; border-radius: 5px; margin-top: 15px;&quot;&gt;
+     &lt;strong&gt;$guideName:&lt;/strong&gt;
+     &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;This is the guide&#39;s second line of dialogue. It&#39;s very easy to add more by just copying the block above.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;div style=&quot;text-align: center; margin-top: 30px;&quot;&gt;
+     [[This is the link to the next passage.]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="This is the link to the next passage." tags="" position="2325,225" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
