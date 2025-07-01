@@ -47,29 +47,45 @@ tw-passage {
   color: blue;
   font-weight: bold;
   text-shadow: 2px 2px 2px black; /* This adds a subtle black shadow to make it more readable */
+}
+  
+  
+tw-story[data-tags~="white-out"] {
+  background-image: none !important;
+  background-color: white !important;
+  color: black !important;
+}
+
+
+tw-story[data-tags~="white-out"] tw-passage {
+    background-color: white !important;
+}
+
+/* This makes sure links are visible on the white background */
+ tw-story[data-tags~="white-out"] a.link {
+    color: darkblue !important;
+}
+
+/* This makes your custom player name black and readable on the white screen */
+ tw-story[data-tags~="white-out"] .player-name {
+    color: black !important;
+    font-weight: bold;
+    text-shadow: none !important;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// This code will run only once when the game starts.
-// It checks if the background music (BGM) has already been created.
 if (window.BGM === undefined) {
 
-  // 1. Create a new audio element from scratch.
+  // 1. Create the audio element.
   const bgm = document.createElement('audio');
   bgm.id = "background-music";
+  bgm.src = "assets/audio/bgmusic.mp3"; // Your default music track.
+  bgm.loop = true; // This makes the music loop automatically.
 
-  // 2. Set the source file for the music.
-  // UPDATED with your exact filename:
-  bgm.src = "assets/audio/bgmusic.mp3";
-
-  // 3. This is the crucial property that makes the music loop forever.
-  bgm.loop = true;
-
-  // This function handles modern browser rules about autoplaying sound.
+  // This function handles browser autoplay rules.
   function playBGM() {
-    // It tries to play the music.
     const promise = bgm.play();
     if (promise !== undefined) {
       promise.catch(error => {
-        // If the browser blocks it, it waits for the user to click anywhere once.
-        console.log("Autoplay was prevented by the browser. Waiting for user interaction.");
+        console.log("Autoplay was prevented. Waiting for user interaction.");
         document.body.addEventListener('click', playBGM, { once: true });
       });
     }
@@ -81,6 +97,17 @@ if (window.BGM === undefined) {
 
   // 5. Set a global flag so this code never runs again.
   window.BGM = bgm;
+}
+
+// --- The New, More Robust Helper Function ---
+// By attaching the function to 'window', we guarantee it is available everywhere.
+window.changeBGM = function(newTrackSource) {
+  if (window.BGM && !window.BGM.src.includes(newTrackSource)) {
+    console.log("Changing BGM to: " + newTrackSource);
+    window.BGM.src = newTrackSource;
+    window.BGM.load(); // This loads the new music file.
+    window.BGM.play(); // This plays the new music file.
+  }
 }</script><tw-passagedata pid="1" name="Anomaly Fixer" tags="" position="2100,200" size="100,100">(if:visits is 1)[(set: $KITCHEN_ATTEMPTS to 2)]
 (if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:200px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;&lt;audio src=&quot;assets/audio/hunter2.1.mp3&quot; autoplay&gt;&lt;/audio&gt;]
 (else:)[&lt;div style=&quot;width:200px;&quot;&gt;&lt;img src=&quot;assets/images/doglady.png&quot; style=&quot;width:100%;&quot;&gt;&lt;audio src=&quot;assets/audio/lady2.mp3&quot; autoplay&gt;&lt;/audio&gt;&lt;/div&gt;]
@@ -134,9 +161,17 @@ It&#39;s a beautiful sunny afternoon in Bologna. You&#39;ve decided to spend the
 
 You arrive at the grand entrance, pushing open the heavy oak doors. A receptionist at a small desk looks up and gives you a welcoming smile.
 
-[[Approach the reception desk to sign in]]</tw-passagedata><tw-passagedata pid="7" name="Enter the archives" tags="" position="3200,300" size="100,100"></tw-passagedata><tw-passagedata pid="8" name="Examine the poster" tags="" position="1000,300" size="100,100">(if:visits is 1)[&lt;p&gt;You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.&lt;/p&gt;]
-&lt;div style=&quot;display: flex; justify-content: center; align-items: center; height: auto;&quot;&gt;
-  &lt;img src=&quot;assets/images/qr.jpg&quot; alt=&quot;qr&quot; style=&quot;max-width: 70vw; max-height: 70vh;&quot;&gt;
+[[Approach the reception desk to sign in]]</tw-passagedata><tw-passagedata pid="7" name="Enter the archives" tags="" position="3725,275" size="100,100">
+(if: $anomalyScore is 2)[
+    (goto: &quot;Good Ending&quot;)
+]
+(if:$anomalyScore is 1)[
+    (goto: &quot;Neutral Ending&quot;)
+]
+(else:)[
+	(goto:&quot;Bad Ending&quot;)</tw-passagedata><tw-passagedata pid="8" name="Examine the poster" tags="" position="1000,300" size="100,100">(if:visits is 1)[&lt;p&gt;You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.&lt;/p&gt;]
+&lt;div style=&quot;display: flex; justify-content: center; align-items: center; height:auto;&quot;&gt;
+  &lt;img src=&quot;assets/images/qr.jpg&quot; alt=&quot;qr&quot; style=&quot;max-width: 900px; max-height: 900px;&quot;&gt;
 &lt;/div&gt;
 You lean closer to the bulletin board. The poster&#39;s paper is thick, and the design looks appropriately old-fashioned, as if from the 1970s.
 
@@ -164,22 +199,23 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 [[Make your choice]]
 
 &lt;audio src=&quot;assets/audio/help2.mp3&quot; autoplay&gt;&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="10" name="First Anomaly" tags="" position="1950,200" size="100,100">(if: $guide is &quot;male&quot;)[
-    &lt;div style=&quot;width: 200px;&quot;&gt;
+    &lt;div style=&quot;width: 300px; margin: 0 auto;&quot;&gt;
         &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;&quot;&gt;
-&lt;audio src=&quot;assets/audio/hunter1.2.mp3&quot; autoplay&gt;&lt;/audio&gt;
+        &lt;audio src=&quot;assets/audio/hunter1.2.mp3&quot; autoplay&gt;&lt;/audio&gt;
     &lt;/div&gt;
 ]
 (if: $guide is &quot;female&quot;)[
-    &lt;div style=&quot;width: 200px;&quot;&gt;
+    &lt;div style=&quot;width: 300px; margin: 0 auto;&quot;&gt;
         &lt;img src=&quot;assets/images/doglady.png&quot; alt=&quot;The Archivist&quot; style=&quot;width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;&quot;&gt;
-&lt;audio src=&quot;assets/audio/lady1.1.mp3&quot; autoplay&gt;&lt;/audio&gt;
+        &lt;audio src=&quot;assets/audio/lady1.1.mp3&quot; autoplay&gt;&lt;/audio&gt;
     &lt;/div&gt;
 ]
-&lt;div class=&quot;text-box&quot; style=&quot;border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 15px; border-radius: 5px; margin-top: 20px;&quot;&gt;
+
+&lt;div class=&quot;text-box&quot; style=&quot;border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 0.95em; line-height: 1.4;&quot;&gt;
     &lt;strong&gt;$guideName:&lt;/strong&gt;
     
     (if: $guide is &quot;male&quot;)[
-        &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;His voice is steady, echoing slightly as if from a great distance. &quot;$playerName. At last. We have watched the centuries turn to dust, searching for a mind sharp enough, a spirit from the correct temporal frequency.
+        &lt;p style=&quot;margin: 5px 0 0 0;&quot;&gt;His voice is steady, echoing slightly as if from a great distance. &quot;$playerName. At last. We have watched the centuries turn to dust, searching for a mind sharp enough, a spirit from the correct temporal frequency.
         &lt;br&gt;&lt;br&gt;
         A rogue intelligence, an AI that the archevist named the Artisan, has breached the walls of time. It doesn&#39;t destroy history—it &#39;corrects&#39; it, subtly replacing key items in our past, unraveling our reality thread by thread. Its canvas is history, and its brushstrokes are paradoxes.
         &lt;br&gt;&lt;br&gt;
@@ -188,7 +224,7 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
         Find the items that do not belong. Restore our legacy. You are the anchor we must use to steady the storm. Save the timeline... save us.&quot;&lt;/p&gt;
     ]
     (if: $guide is &quot;female&quot;)[
-        &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;Her voice is precise, with an undercurrent of intense urgency. &quot;$playerName. Your arrival is a statistical certainty I have been waiting to observe. I am glad the probability held.
+        &lt;p style=&quot;margin: 5px 0 0 0;&quot;&gt;Her voice is precise, with an undercurrent of intense urgency. &quot;$playerName. Your arrival is a statistical certainty I have been waiting to observe. I am glad the probability held.
         &lt;br&gt;&lt;br&gt;
         There is a ghost in the machine of time—a rogue consciousness born from the data streams of your era. I was the first to track it. I am the one who gave it its name: the Artisan. It sees our history not as a life lived, but as a flawed manuscript in need of an editor.
         &lt;br&gt;&lt;br&gt;
@@ -198,16 +234,15 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
     ]
 &lt;/div&gt;
 
-
-&lt;div class=&quot;text-box&quot; style=&quot;border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 15px; border-radius: 5px; margin-top: 15px;&quot;&gt;
+&lt;div class=&quot;text-box&quot; style=&quot;border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 0.95em; line-height: 1.4;&quot;&gt;
     &lt;strong&gt;$guideName:&lt;/strong&gt;
-    &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;The first anomaly has already been detected. This way. There is no time to waste. It is messing with the kitchen painting. &lt;/p&gt;
+    &lt;p style=&quot;margin: 5px 0 0 0;&quot;&gt;The first anomaly has already been detected. This way. There is no time to waste. It is messing with the kitchen painting.&lt;/p&gt;
 &lt;/div&gt;
 
-
-&lt;div style=&quot;text-align: center; margin-top: 30px;&quot;&gt;
+&lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
      [[Follow $guideName through the hidden door.-&gt;Anomaly Fixer]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Go on" tags="" position="3525,325" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="11" name="Go on" tags="" position="3525,250" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
 
     &lt;div style=&quot;flex: 0 0 200px;&quot;&gt;
         (if: $guide is &quot;male&quot;)[
@@ -243,7 +278,7 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 &lt;/div&gt;
 
 &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
-    [[Go on]]
+    [[Enter the archives]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Handle Correct Choice" tags="" position="2425,450" size="100,100">(set: $anomalyScore to $anomalyScore + 1)
 (goto: &quot;Success Display&quot;)</tw-passagedata><tw-passagedata pid="13" name="Handle Wrong Choice" tags="" position="2050,500" size="100,100">(set: $KITCHEN_ATTEMPTS to $KITCHEN_ATTEMPTS - 1)
 
@@ -494,7 +529,31 @@ You quickly lock your phone and slip it back into your pocket, your heart poundi
 
 You have your objective.
 
-[[Find the mysterious &quot;friend&quot; in the portrait room..]]</tw-passagedata></tw-storydata>
+[[Find the mysterious &quot;friend&quot; in the portrait room..]]</tw-passagedata><tw-passagedata pid="29" name="Good Ending" tags="" position="3850,150" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/linkin.mp3&quot;);&lt;/script&gt;
+
+&lt;p&gt;The room is dark and you hear a strange noise...&lt;/p&gt;
+You step into the archives. Rows upon rows of ancient books and scrolls line the walls, but your attention is drawn to the center of the room.
+
+There, floating above a terminal, is the Artisan.
+
+It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure data, glitching and dissolving at the edges like a corrupted video file. As you watch, its form becomes less stable, large streams of light bleeding from it into the air. It seems to be in pain. It has been weakened because you fixed the anomalies.
+
+Suddenly, your phone starts to emit a small temporal beam!
+
+[[The lazer shoots towards the melting figure...]]</tw-passagedata><tw-passagedata pid="30" name="The lazer shoots towards the melting figure..." tags="white-out" position="4050,175" size="100,100">&lt;div style=&quot;text-align:center; padding-top: 35vh;&quot;&gt;
+    (if: $guide is &quot;male&quot;)[
+        &lt;p&gt;&lt;strong&gt;The Hunter&#39;s voice echoes in the silence:&lt;/strong&gt;&lt;/p&gt;
+    ]
+    (else:)[
+        &lt;p&gt;&lt;strong&gt;The Archivist&#39;s voice echoes in the silence:&lt;/strong&gt;&lt;/p&gt;
+    ]
+    &lt;p style=&quot;font-style:italic;&quot;&gt;&quot;Goodbye, &lt;span class=&quot;player-name&quot;&gt;$playerName&lt;/span&gt;. You saved more than you know.&quot;&lt;/p&gt;
+
+    &lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;p&gt;(link:&quot;Play Again?&quot;)[(reload:)]&lt;/p&gt;
+    &lt;h3&gt;The End&lt;/h3&gt;
+&lt;/div&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
