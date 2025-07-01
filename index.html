@@ -11,10 +11,7 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Davia Bargellini Time Detective.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Davia Bargellini Time Detective" startnode="6" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="6DF1E6E1-715C-4614-95EF-3369D2E9DC65" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
     /* --- The Background Image --- */
-    /* CORRECTED: The filename now perfectly matches your file! */
     background-image: url("assets/images/museumbg.jpg");
-
-    /* This makes the image cover the entire screen without repeating or stretching weirdly. */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -23,54 +20,33 @@
 
 tw-passage {
     /* --- The Text Readability Layer --- */
-    /* This adds a semi-transparent black box behind your text, but in front of the background image. */
-    /* 0.5 is the transparency. You can change it from 0.0 (fully transparent) to 1.0 (fully opaque). */
-    background-color: rgba(0, 0,0, 0.5);
-  
-  .glitch-word {
-  color: #BA8E23; /* A golden yellow color */
-  font-family: "Courier New", monospace;
-  font-weight: bold;
-  text-shadow: 2 2 5px #FFD700;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white; /* This makes the main text color white */
+    padding: 2em;
+    border-radius: 10px;
 }
 
-    /* This makes the main text color white, which is easier to read on a dark overlay. */
-    color: white;
-
-    /* This adds a little padding so the text isn't touching the edges of the box. */
-    padding: 2em;
-    
-    /* This makes the corners of the text box slightly rounded. */
-    border-radius: 10px;
+/* All class definitions must be separate, like this.
+  They cannot be inside the curly braces {} of another rule.
+*/
+.glitch-word {
+  color: #BA8E23;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  /* I also fixed the text-shadow syntax to include 'px' */
+  text-shadow: 2px 2px 5px #FFD700; 
+}
 
 .player-name {
   color: blue;
   font-weight: bold;
-  text-shadow: 2px 2px 2px black; /* This adds a subtle black shadow to make it more readable */
-}
-  
-  
-tw-story[data-tags~="white-out"] {
-  background-image: none !important;
-  background-color: white !important;
-  color: black !important;
+  text-shadow: 2px 2px 2px black;
 }
 
 
-tw-story[data-tags~="white-out"] tw-passage {
-    background-color: white !important;
-}
-
-/* This makes sure links are visible on the white background */
- tw-story[data-tags~="white-out"] a.link {
-    color: darkblue !important;
-}
-
-/* This makes your custom player name black and readable on the white screen */
- tw-story[data-tags~="white-out"] .player-name {
-    color: black !important;
-    font-weight: bold;
-    text-shadow: none !important;
+tw-story[data-tags~="grayscale-ending"] {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%); 
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// This code will run only once when the game starts.
 if (window.BGM === undefined) {
 
@@ -108,7 +84,7 @@ window.changeBGM = function(newTrackSource) {
     window.BGM.load(); // This loads the new music file.
     window.BGM.play(); // This plays the new music file.
   }
-}</script><tw-passagedata pid="1" name="Anomaly Fixer" tags="" position="2100,200" size="100,100">(if:visits is 1)[(set: $KITCHEN_ATTEMPTS to 2)]
+}</script><tw-tag name="white-out" color="none"></tw-tag><tw-tag name="grayscale-ending" color="purple"></tw-tag><tw-passagedata pid="1" name="Anomaly Fixer" tags="" position="2100,200" size="100,100">(if:visits is 1)[(set: $KITCHEN_ATTEMPTS to 2)]
 (if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:200px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;&lt;audio src=&quot;assets/audio/hunter2.1.mp3&quot; autoplay&gt;&lt;/audio&gt;]
 (else:)[&lt;div style=&quot;width:200px;&quot;&gt;&lt;img src=&quot;assets/images/doglady.png&quot; style=&quot;width:100%;&quot;&gt;&lt;audio src=&quot;assets/audio/lady2.mp3&quot; autoplay&gt;&lt;/audio&gt;&lt;/div&gt;]
 &lt;div class=&quot;text-box&quot;&gt;
@@ -242,7 +218,7 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
      [[Follow $guideName through the hidden door.-&gt;Anomaly Fixer]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="11" name="Go on" tags="" position="3525,250" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
+</tw-passagedata><tw-passagedata pid="11" name="Go on" tags="" position="3500,250" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
 
     &lt;div style=&quot;flex: 0 0 200px;&quot;&gt;
         (if: $guide is &quot;male&quot;)[
@@ -307,7 +283,7 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 &lt;p&gt;The two women are wearing typical 17th-century servant&#39;s attire. Nothing seems out of place here.&lt;/p&gt;
 [[This looks normal. Go back.-&gt;Handle Wrong Choice]]
 
-&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="18" name="Learn More About the History of the Building" tags="" position="3350,325" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
+&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="18" name="Learn More About the History of the Building" tags="" position="3300,275" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
 
     &lt;div style=&quot;flex: 0 0 200px;&quot;&gt;
         (if: $guide is &quot;male&quot;)[
@@ -393,14 +369,14 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 &lt;p&gt;&lt;i&gt;(You did not gain a point.)&lt;/i&gt;&lt;/p&gt;
 [[Proceed to the next puzzle]]
 
-</tw-passagedata><tw-passagedata pid="22" name="Password Correct" tags="" position="3375,150" size="100,100">(set: $anomalyScore to $anomalyScore + 1)
-&lt;p&gt;As you type &#39;Art holds the key&#39; into your temporal device, you hear a soft chime. A nearby door, previously unnoticed, glows faintly.&lt;/p&gt;
+</tw-passagedata><tw-passagedata pid="22" name="Password Correct" tags="" position="3075,125" size="100,100">(set: $anomalyScore to $anomalyScore + 1)
+&lt;p&gt;As you type &#39;Power guards this palace&#39; into your temporal device, you hear a soft chime. A nearby door, previously unnoticed, glows faintly.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;$guideName:&lt;/strong&gt; &quot;The code is accepted. You have a keen eye for fractured data. Well done.&quot;&lt;/p&gt;
 [[Enter the archives]]
-[[Learn More About the History of the Building]]</tw-passagedata><tw-passagedata pid="23" name="Password Failed" tags="" position="3100,550" size="100,100">&lt;p&gt;After your third failed attempt, the terminal flashes red and the glitched words fade back into the normal text, the lock now permanent.&lt;/p&gt;
+[[Learn More About the History of the Building]]</tw-passagedata><tw-passagedata pid="23" name="Password Failed" tags="" position="3150,600" size="100,100">&lt;p&gt;After your third failed attempt, the terminal flashes red and the glitched words fade back into the normal text, the lock now permanent.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;$guideName:&lt;/strong&gt; &quot;The lock has sealed itself. A shame. There must be another way around. We have wasted enough time here.&quot;&lt;/p&gt;
 [[Enter the archives]]
-[[Learn More About the History of the Building]]</tw-passagedata><tw-passagedata pid="24" name="Password Try Again" tags="" position="3000,300" size="100,100">(set: $clickAttempts to 1)
+[[Learn More About the History of the Building]]</tw-passagedata><tw-passagedata pid="24" name="Password Try Again" tags="" position="3125,300" size="100,100">(set: $clickAttempts to 1)
 
 (if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
 (else:)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/doglady.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
@@ -437,7 +413,111 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 
 (if: $puzzleFeedback is not &quot;&quot;)[
     &lt;p style=&quot;text-align:center; color:red;&quot;&gt;&#39;&#39;$puzzleFeedback&#39;&#39;&lt;/p&gt;
-]&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="25" name="Proceed to the next puzzle" tags="" position="2825,300" size="100,100">(set: $clickAttempts to 2)
+]&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="25" name="Proceed to the next puzzle" tags="" position="2800,300" size="100,100">&lt;div style=&quot;text-align: center; padding-top: 5vh;&quot;&gt;
+
+    &lt;div style=&quot;width: 50%; max-width: 200px; margin: 0 auto 20px auto;&quot;&gt;
+        (if: $guide is &quot;male&quot;)[
+            &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%;&quot;&gt;
+        ]
+        (else:)[
+            &lt;img src=&quot;assets/images/doglady.png&quot; alt=&quot;The Archivist&quot; style=&quot;width: 100%;&quot;&gt;
+        ]
+    &lt;/div&gt;
+
+    &lt;div class=&quot;text-box&quot; style=&quot;text-align: left;&quot;&gt;
+        &lt;strong&gt;$guideName:&lt;/strong&gt;
+        (if: $guide is &quot;male&quot;)[
+            &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;The Artisan is getting bolder. It&#39;s no longer just corrupting items *in* the paintings. It&#39;s now attacking the very history of this place—the manuscripts, the historical records in the archives.&quot;
+            &lt;br&gt;&lt;br&gt;
+            &quot;If we lose those, we lose the map of the timeline itself. We must hurry before the damage becomes irreversible.&quot;&lt;/p&gt;
+        ]
+        (else:)[
+            &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;The corruption is spreading faster than I predicted. The AI&#39;s attacks are evolving. It has moved beyond physical anachronisms and is now targeting the source code of our history—the manuscripts and charters.&quot;
+            &lt;br&gt;&lt;br&gt;
+            &quot;It is trying to erase the data of what *was* to solidify its new reality. We must protect the archives before the original records are lost forever.&quot;&lt;/p&gt;
+        ]
+    &lt;/div&gt;
+
+    &lt;div style=&quot;margin-top: 30px;&quot;&gt;
+         [[We have to protect the archives!-&gt;Puzzle2]]
+    &lt;/div&gt;
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Step back from the poster. You&#39;re just here for a quiet day at the museum." tags="" position="1100,500" size="100,100">You shake your head and take a step back. &quot;Not my business,&quot; you decide. A secret mission is the last thing you want on your quiet afternoon off. You&#39;re here to see the art, and that&#39;s exactly what you&#39;ll do.
+
+You spend the next few hours wandering through the grand halls of the museum. You admire the intricate woodcarvings in the furniture exhibits, study the early examples of industrial machinery, and appreciate the beautiful frescoes on the high ceilings. It&#39;s a wonderful, peaceful day.
+
+[[As evening approaches...]]</tw-passagedata><tw-passagedata pid="27" name="Success Display" tags="" position="2600,300" size="100,100">&lt;audio src=&quot;assets/audio/success.mp3&quot; autoplay&gt;&lt;/audio&gt;
+
+(if: $guide is &quot;male&quot;)[
+    &lt;div style=&quot;width: 200px;&quot;&gt;
+        &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%;&quot;&gt;
+    &lt;/div&gt;
+]
+(else:)[
+    &lt;div style=&quot;width: 200px;&quot;&gt;
+        &lt;img src=&quot;assets/images/doglady.png&quot; alt=&quot;The Archivist&quot; style=&quot;width: 100%;&quot;&gt;
+    &lt;/div&gt;
+]
+
+&lt;div class=&quot;text-box&quot; style=&quot;border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 5px; border-radius: 5px; margin-top: 10px;&quot;&gt;
+    &lt;strong&gt;$guideName:&lt;/strong&gt;
+    &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;Perfectly done. The timeline in this room is stable again. We must continue.&quot;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p style=&quot;margin-top: 20px;&quot;&gt;The painting shimmers and the (text-colour:yellow)[washing machine] vanishes, replaced by a simple wooden stove, just as it should have been.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center; margin: 10px 0;&quot;&gt;
+    &lt;img src=&quot;assets/images/original1.png&quot; alt=&quot;The original, corrected kitchen painting.&quot; style=&quot;width: 100%; max-width: 600px;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;i&gt;(You gained 1 point! Your score is now $anomalyScore.)&lt;/i&gt;&lt;/p&gt;
+&lt;div style=&quot;text-align: center;&quot;&gt;
+    [[Proceed to the next puzzle]]
+    [[Learn more about the painting]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Use your phone to scan the QR code." tags="" position="1300,200" size="100,100">You glance around. The few other visitors in the hall are absorbed in the grand paintings on the walls. No one is paying you any attention.
+
+You discreetly pull out your smartphone, open a scanner app, and point it at the QR code.
+
+The phone buzzes instantly. It doesn&#39;t open a website. Instead, it displays a simple, stark text message on a black background, the kind you&#39;d see in an old spy movie.
+
+&lt;div style=&quot;background-color: #111; color: #00FF41; font-family: &#39;Courier New&#39;, monospace; padding: 20px; border: 2px solid #333; margin: 1em 0; border-radius: 5px;&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;&amp;gt; SECURE MESSAGE RECEIVED&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;&amp;gt; The pigeon is in the coop.&lt;/p&gt;
+    &lt;p&gt;&amp;gt; A friend is waiting in the Portrait room..&lt;/p&gt;
+    &lt;p&gt;&amp;gt; PASSPHRASE: The clock ticks backwards.&lt;/p&gt;
+&lt;/div&gt;
+
+You quickly lock your phone and slip it back into your pocket, your heart pounding.
+
+You have your objective.
+
+[[Find the mysterious &quot;friend&quot; in the portrait room..]]</tw-passagedata><tw-passagedata pid="29" name="Good Ending" tags="" position="3850,150" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/linkin.mp3&quot;);&lt;/script&gt;
+
+&lt;p&gt;The room is dark and you hear a strange noise...&lt;/p&gt;
+You step into the archives. Rows upon rows of ancient books and scrolls line the walls, but your attention is drawn to the center of the room.
+
+There, floating above a terminal, is the Artisan.
+
+&lt;div style=&quot;margin-top: 2px; text-align: center;&quot;&gt;
+    &lt;img src=&quot;assets/images/laser.png&quot; alt=&quot;Laser Effect&quot; style=&quot;max-width: 100%; height: auto;&quot;&gt;
+&lt;/div&gt;
+
+
+It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure data, glitching and dissolving at the edges like a corrupted video file. As you watch, its form becomes less stable, large streams of light bleeding from it into the air. It seems to be in pain. It has been weakened because you fixed the anomalies.
+
+Suddenly, your phone starts to emit a small temporal beam!
+
+[[Go On]]</tw-passagedata><tw-passagedata pid="30" name="Go On" tags="" position="4275,200" size="100,100">The world dissolves in a flash of light... and then reforms with a jolt.
+
+You feel a gentle tap on your shoulder and turn to see a museum guard looking at you with concern.
+
+&quot;Sir? Are you alright?&quot; he asks. &quot;You&#39;ve been standing here in front of the bulletin board for a couple of hours. We&#39;re closing soon.&quot;
+
+Your mind reels. A dream? You look frantically around the hall. Everything is perfectly normal. The portraits of the Hunter and the Lady with the Dog hang silently on the wall, just paint and canvas. There is no golden gleam, no whispered calls. It must have all been in your head.
+
+Confused, and with a strange sense of loss, you thank the guard and head for the exit.
+
+[[Leave the museum]]</tw-passagedata><tw-passagedata pid="31" name="Puzzle2" tags="" position="2975,300" size="100,100">(set: $clickAttempts to 2)
 
 (if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
 (else:)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/doglady.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
@@ -480,80 +560,104 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 
 (if: $puzzleFeedback is not &quot;&quot;)[
     &lt;p style=&quot;text-align:center; color:red;&quot;&gt;&#39;&#39;$puzzleFeedback&#39;&#39;&lt;/p&gt;
-]</tw-passagedata><tw-passagedata pid="26" name="Step back from the poster. You&#39;re just here for a quiet day at the museum." tags="" position="1100,500" size="100,100">You shake your head and take a step back. &quot;Not my business,&quot; you decide. A secret mission is the last thing you want on your quiet afternoon off. You&#39;re here to see the art, and that&#39;s exactly what you&#39;ll do.
+]</tw-passagedata><tw-passagedata pid="32" name="Leave the museum" tags="" position="4450,200" size="100,100">You walk out of the grand doors and into the evening light of Bologna. &quot;What a strange day,&quot; you think to yourself, shaking your head to clear the last remnants of the vivid dream.
 
-You spend the next few hours wandering through the grand halls of the museum. You admire the intricate woodcarvings in the furniture exhibits, study the early examples of industrial machinery, and appreciate the beautiful frescoes on the high ceilings. It&#39;s a wonderful, peaceful day.
+You put your hand in your pocket, and your fingers touch a small, square piece of thick, old paper. You pull it out.
 
-[[As evening approaches...]]</tw-passagedata><tw-passagedata pid="27" name="Success Display" tags="" position="2600,300" size="100,100">&lt;audio src=&quot;assets/audio/success.mp3&quot; autoplay&gt;&lt;/audio&gt;
+It&#39;s the QR code from the poster. Small, sharp, and impossibly real.
 
-(if: $guide is &quot;male&quot;)[
-    &lt;div style=&quot;width: 120px;&quot;&gt;
-        &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%;&quot;&gt;
+[[It was all real.-&gt;Final Goodbye]]</tw-passagedata><tw-passagedata pid="33" name="Final Goodbye" tags="" position="4600,200" size="100,100">&lt;div style=&quot;text-align:center; padding-top: 15vh;&quot;&gt;
+
+    &lt;div style=&quot;width: 40%; max-width: 200px; margin: 0 auto 20px auto;&quot;&gt;
+        (if: $guide is &quot;male&quot;)[
+            &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%; height: auto; border: 0px solid white;&quot;&gt;
+        ]
+        (else:)[
+            &lt;img src=&quot;assets/images/doglady.png&quot; alt=&quot;The Archivist&quot; style=&quot;width: 100%; height: auto; border: 0px solid white;&quot;&gt;
+        ]
     &lt;/div&gt;
-]
-(else:)[
-    &lt;div style=&quot;width: 120px;&quot;&gt;
-        &lt;img src=&quot;assets/images/doglady.png&quot; alt=&quot;The Archivist&quot; style=&quot;width: 100%;&quot;&gt;
+
+    &lt;div style=&quot;color:white;&quot;&gt;
+        (if: $guide is &quot;male&quot;)[
+            &lt;p&gt;&lt;strong&gt;The Hunter&#39;s voice echoes in the silence:&lt;/strong&gt;&lt;/p&gt;
+        ]
+        (else:)[
+            &lt;p&gt;&lt;strong&gt;The Archivist&#39;s voice echoes in the silence:&lt;/strong&gt;&lt;/p&gt;
+        ]
+        &lt;p style=&quot;font-style:italic;&quot;&gt;&quot;Goodbye, &lt;span class=&quot;player-name&quot;&gt;$playerName&lt;/span&gt;. You saved more than you know.&quot;&lt;/p&gt;
     &lt;/div&gt;
-]
+    
+    &lt;p&gt;[[Credits Paintings]]&lt;/p&gt;
 
-&lt;div class=&quot;text-box&quot; style=&quot;border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 15px; border-radius: 5px; margin-top: 20px;&quot;&gt;
-    &lt;strong&gt;$guideName:&lt;/strong&gt;
-    &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;Perfectly done. The timeline in this room is stable again. We must continue.&quot;&lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="34" name="Credits Paintings" tags="" position="4750,200" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
+
+    &lt;h2&gt;Artworks Featured as Guides&lt;/h2&gt;
+
+    &lt;div style=&quot;display: flex; justify-content: space-around; align-items: flex-start; gap: 20px; margin-top: 20px;&quot;&gt;
+        
+        &lt;div style=&quot;flex: 1;&quot;&gt;
+            &lt;img src=&quot;assets/images/doglady.png&quot; alt=&quot;Portrait of a Lady with a Dog by Rosalba Carriera&quot; style=&quot;width: 90%; border: 1px solid #ccc;&quot;&gt;
+            &lt;p style=&quot;font-size: 0.9em; font-style: italic; margin-top: 10px;&quot;&gt;
+                &lt;strong&gt;&quot;Portrait of a Young Lady with a Little Dog&quot;&lt;/strong&gt; (c. 1755)&lt;br&gt;
+                by  Luigi Crespi
+            &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;flex: 1;&quot;&gt;
+            &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;A Sportsman with his Dogs by Giuseppe Maria Crespi&quot; style=&quot;width: 90%; border: 1px solid #ccc;&quot;&gt;
+            &lt;p style=&quot;font-size: 0.9em; font-style: italic; margin-top: 10px;&quot;&gt;
+                &lt;strong&gt;&quot;Hunter&quot;&lt;/strong&gt; (c.1740)&lt;br&gt;
+                by Luigi Crespi
+            &lt;/p&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;div style=&quot;margin-top: 40px;&quot;&gt;
+        [[The Team Behind It]]
+    &lt;/div&gt;
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="The Team Behind It" tags="" position="4925,200" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
+
+    &lt;!-- Logo --&gt;
+    &lt;div style=&quot;margin-bottom: 30px;&quot;&gt;
+        &lt;img src=&quot;assets/images/logo.png&quot; alt=&quot;Team Logo&quot; style=&quot;max-width: 200px; width: 50%;&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;h2&gt;The Time Lords&lt;/h2&gt;
+
+    &lt;!-- Grid: 2 sütun, alt alta --&gt;
+    &lt;div style=&quot;display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px 5%; max-width: 500px; margin: auto;&quot;&gt;
+        
+        &lt;div style=&quot;flex-basis: 45%; text-align: center;&quot;&gt;
+            &lt;img src=&quot;assets/images/atat.jpeg&quot; alt=&quot;Atat&quot; style=&quot;width: 100%; height: auto; border-radius: 8px;&quot;&gt;
+            &lt;p&gt;Atakan Kayı&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;flex-basis: 45%; text-align: center;&quot;&gt;
+            &lt;img src=&quot;assets/images/ceda.jpg&quot; alt=&quot;Ceyda&quot; style=&quot;width: 100%; height: auto; border-radius: 8px;&quot;&gt;
+            &lt;p&gt;Ceyda Uyar&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;flex-basis: 45%; text-align: center;&quot;&gt;
+            &lt;img src=&quot;assets/images/dani.jpg&quot; alt=&quot;Dani&quot; style=&quot;width: 100%; height: auto; border-radius: 8px;&quot;&gt;
+            &lt;p&gt;Daniele Camagna&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;flex-basis: 45%; text-align: center;&quot;&gt;
+            &lt;img src=&quot;assets/images/dina.jpg&quot; alt=&quot;Dina&quot; style=&quot;width: 100%; height: auto; border-radius: 8px;&quot;&gt;
+            &lt;p&gt;Dinara Kabiyeva&lt;/p&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- Play Again button --&gt;
+    &lt;div style=&quot;margin-top: 40px;&quot;&gt;
+        &lt;p&gt;(link:&quot;Play Again?&quot;)[(reload:)]&lt;/p&gt;
+    &lt;/div&gt;
+
 &lt;/div&gt;
-
-&lt;p style=&quot;margin-top: 20px;&quot;&gt;The painting shimmers and the (text-colour:yellow)[washing machine] vanishes, replaced by a simple wooden stove, just as it should have been.&lt;/p&gt;
-
-&lt;div style=&quot;text-align: center; margin: 20px 0;&quot;&gt;
-    &lt;img src=&quot;assets/images/original1.png&quot; alt=&quot;The original, corrected kitchen painting.&quot; style=&quot;width: 100%; max-width: 600px;&quot;&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;i&gt;(You gained 1 point! Your score is now $anomalyScore.)&lt;/i&gt;&lt;/p&gt;
-&lt;div style=&quot;text-align: center;&quot;&gt;
-    [[Proceed to the next puzzle]]
-    [[Learn more about the painting]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Use your phone to scan the QR code." tags="" position="1300,200" size="100,100">You glance around. The few other visitors in the hall are absorbed in the grand paintings on the walls. No one is paying you any attention.
-
-You discreetly pull out your smartphone, open a scanner app, and point it at the QR code.
-
-The phone buzzes instantly. It doesn&#39;t open a website. Instead, it displays a simple, stark text message on a black background, the kind you&#39;d see in an old spy movie.
-
-&lt;div style=&quot;background-color: #111; color: #00FF41; font-family: &#39;Courier New&#39;, monospace; padding: 20px; border: 2px solid #333; margin: 1em 0; border-radius: 5px;&quot;&gt;
-    &lt;p&gt;&lt;strong&gt;&amp;gt; SECURE MESSAGE RECEIVED&lt;/strong&gt;&lt;/p&gt;
-    &lt;p&gt;&amp;gt; The pigeon is in the coop.&lt;/p&gt;
-    &lt;p&gt;&amp;gt; A friend is waiting in the Portrait room..&lt;/p&gt;
-    &lt;p&gt;&amp;gt; PASSPHRASE: The clock ticks backwards.&lt;/p&gt;
-&lt;/div&gt;
-
-You quickly lock your phone and slip it back into your pocket, your heart pounding.
-
-You have your objective.
-
-[[Find the mysterious &quot;friend&quot; in the portrait room..]]</tw-passagedata><tw-passagedata pid="29" name="Good Ending" tags="" position="3850,150" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/linkin.mp3&quot;);&lt;/script&gt;
-
-&lt;p&gt;The room is dark and you hear a strange noise...&lt;/p&gt;
-You step into the archives. Rows upon rows of ancient books and scrolls line the walls, but your attention is drawn to the center of the room.
-
-There, floating above a terminal, is the Artisan.
-
-It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure data, glitching and dissolving at the edges like a corrupted video file. As you watch, its form becomes less stable, large streams of light bleeding from it into the air. It seems to be in pain. It has been weakened because you fixed the anomalies.
-
-Suddenly, your phone starts to emit a small temporal beam!
-
-[[The lazer shoots towards the melting figure...]]</tw-passagedata><tw-passagedata pid="30" name="The lazer shoots towards the melting figure..." tags="white-out" position="4050,175" size="100,100">&lt;div style=&quot;text-align:center; padding-top: 35vh;&quot;&gt;
-    (if: $guide is &quot;male&quot;)[
-        &lt;p&gt;&lt;strong&gt;The Hunter&#39;s voice echoes in the silence:&lt;/strong&gt;&lt;/p&gt;
-    ]
-    (else:)[
-        &lt;p&gt;&lt;strong&gt;The Archivist&#39;s voice echoes in the silence:&lt;/strong&gt;&lt;/p&gt;
-    ]
-    &lt;p style=&quot;font-style:italic;&quot;&gt;&quot;Goodbye, &lt;span class=&quot;player-name&quot;&gt;$playerName&lt;/span&gt;. You saved more than you know.&quot;&lt;/p&gt;
-
-    &lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-    &lt;p&gt;(link:&quot;Play Again?&quot;)[(reload:)]&lt;/p&gt;
-    &lt;h3&gt;The End&lt;/h3&gt;
-&lt;/div&gt;</tw-passagedata></tw-storydata>
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
