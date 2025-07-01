@@ -13,10 +13,9 @@ Davia Bargellini Time Detective
 
 
 :: Anomaly Fixer {"position":"2100,200","size":"100,100"}
- 
 (if:visits is 1)[(set: $KITCHEN_ATTEMPTS to 2)]
-(if: $guide is "male")[<div style="width:200px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div>]
-(else:)[<div style="width:200px;"><img src="assets/images/doglady.png" style="width:100%;"></div>]
+(if: $guide is "male")[<div style="width:200px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div><audio src="assets/audio/hunter2.1.mp3" autoplay></audio>]
+(else:)[<div style="width:200px;"><img src="assets/images/doglady.png" style="width:100%;"><audio src="assets/audio/lady2.mp3" autoplay></audio></div>]
 <div class="text-box">
     <strong>$guideName:</strong>
     <p>"The anomaly is in this painting of a 17th-century kitchen. Find what doesn't belong."</p>
@@ -55,17 +54,12 @@ Davia Bargellini Time Detective
 (goto: "First Anomaly")
 
 
-
-
 :: Approach the portrait of the woman. {"position":"1900,100","size":"100,100"}
 (set: $guide to "female")
 (set: $guideName to "The Archivist")
 (set: $guidePronoun to "she")
 (set: $guidePossessive to "her")
 (goto: "First Anomaly")
-
-
-
 
 
 :: Approach the reception desk to sign in {"position":"800,300","size":"100,100"}
@@ -101,11 +95,9 @@ You arrive at the grand entrance, pushing open the heavy oak doors. A receptioni
 
 :: Examine the poster {"position":"1000,300","size":"100,100"}
 (if:visits is 1)[<p>You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.</p>]
-
-<div style="display: flex; align-items: center; border: 2px solid #8B4513; background-color: #F5F5DC; padding: 20px;">
-... (the rest of your poster code) ...
+<div style="display: flex; justify-content: center; align-items: center; height: auto;">
+  <img src="assets/images/qr.jpg" alt="qr" style="max-width: 70vw; max-height: 70vh;">
 </div>
-
 You lean closer to the bulletin board. The poster's paper is thick, and the design looks appropriately old-fashioned, as if from the 1970s.
 
 But your eye catches something impossible.
@@ -133,18 +125,22 @@ Then, you hear it. A whisper that seems to come from all around you, yet from no
 
 It's your name. Both portraits are calling to you. They are the contacts. You must choose your guide.
 
-[[Make your choice]] 
+[[Make your choice]]
+
+<audio src="assets/audio/help2.mp3" autoplay></audio>
 
 
 :: First Anomaly {"position":"1950,200","size":"100,100"}
 (if: $guide is "male")[
     <div style="width: 200px;">
         <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;">
+<audio src="assets/audio/hunter1.2.mp3" autoplay></audio>
     </div>
 ]
 (if: $guide is "female")[
     <div style="width: 200px;">
         <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;">
+<audio src="assets/audio/lady1.1.mp3" autoplay></audio>
     </div>
 ]
 <div class="text-box" style="border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 15px; border-radius: 5px; margin-top: 20px;">
@@ -153,7 +149,7 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
     (if: $guide is "male")[
         <p style="margin-top:5px; margin-bottom:0;">His voice is steady, echoing slightly as if from a great distance. "$playerName. At last. We have watched the centuries turn to dust, searching for a mind sharp enough, a spirit from the correct temporal frequency.
         <br><br>
-        A rogue intelligence, an AI that calls itself the Artisan, has breached the walls of time. It doesn't destroy history—it 'corrects' it, subtly replacing key items in our past, unraveling our reality thread by thread. Its canvas is history, and its brushstrokes are paradoxes.
+        A rogue intelligence, an AI that the archevist named the Artisan, has breached the walls of time. It doesn't destroy history—it 'corrects' it, subtly replacing key items in our past, unraveling our reality thread by thread. Its canvas is history, and its brushstrokes are paradoxes.
         <br><br>
         It has started here, in our home, using the artworks of the Bargellini family as its twisted medium. We need your eyes, untainted by these new, false memories, to spot the anomalies—the digital fingerprints it has left on our analog world.
         <br><br>
@@ -173,7 +169,7 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 
 <div class="text-box" style="border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 15px; border-radius: 5px; margin-top: 15px;">
     <strong>$guideName:</strong>
-    <p style="margin-top:5px; margin-bottom:0;">The first anomaly has already been detected. This way. There is no time to waste. It şs messing with the kitchen painting. </p>
+    <p style="margin-top:5px; margin-bottom:0;">The first anomaly has already been detected. This way. There is no time to waste. It is messing with the kitchen painting. </p>
 </div>
 
 
@@ -243,6 +239,8 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 ]
 
 
+
+
 :: Investigate the counter {"position":"2425,325","size":"100,100"}
 <img src="assets/images/counter.png" style="width:100%;">
 <p>You focus on the counter and see it clearly: a modern, metallic (text-colour:yellow)[washing machine] with buttons and lights. This is completely out of place!</p>
@@ -250,7 +248,6 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 
 
 :: Investigate the fireplace {"position":"2287.5,325","size":"100,100"}
-
 <img src="assets/images/fireplace.png" style="width:100%;">
 <p>It's a large, brick fireplace, common for kitchens of this era. Nothing seems unusual.</p>
 [[This looks normal. Go back.->Handle Wrong Choice]]
@@ -259,7 +256,6 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 
 
 :: Investigate the plates {"position":"2050,325","size":"100,100"}
-
 <img src="assets/images/plates.png" style="width:100%;">
 <p>You look closely at the stack of plates. They seem perfectly appropriate for the time period.</p>
 [[This looks normal. Go back.->Handle Wrong Choice]]
@@ -268,7 +264,6 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 
 
 :: Investigate the women {"position":"2162.5,325","size":"100,100"}
-
 <img src="assets/images/women.png" style="width:100%;">
 <p>The two women are wearing typical 17th-century servant's attire. Nothing seems out of place here.</p>
 [[This looks normal. Go back.->Handle Wrong Choice]]
@@ -340,7 +335,7 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 
 :: Make your choice {"position":"1700,200","size":"100,100"}
 <div style="text-align: center;">
-    <p>You are split between the timelines. You stand in two olaces at the same time. You find yourself in front of 'The Hunter' and 'The Lady With The Dog'.</p>
+    <p>You are split between the timelines. You stand in two places at the same time. You find yourself in front of 'The Hunter' and 'The Lady With The Dog'.</p>
     <p><strong>"...$playerName..."</strong></p>
     <p>The figures in the paintings seem to look directly at you, offering a choice that will define your path. You must choose your guide.</p>
 </div>
@@ -350,7 +345,7 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
     <div class="choice-card" style="flex: 1; text-align: center; margin: 0 10px;">
         <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%; max-width: 250px; border: 0px solid white;">
         <h3 style="color: #E6D8AD; margin: 0; padding-top: 10px;">The Lady With The Dog</h3>
-        <p style="font-style: italic; min-height: 100px;">"History is a library of fragile pages. I need a careful reader to help me find the words that have been rewritten."</p>
+        <p style="font-style: italic; min-height: auto;">"History is a library of fragile pages. I need a careful reader to help me find the words that have been rewritten."</p>
         <div style="background-color: #E6D8AD; color: #333; padding: 10px 15px; border-radius: 5px; cursor: pointer; display: inline-block;">
             [[Choose The Archivist->Approach the portrait of the woman.]]
         </div>
@@ -374,6 +369,8 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 <p><strong>$guideName:</strong> "It's too late. The anomaly is now part of the timeline. We have failed here and must move on before the paradox spreads."</p>
 <p><i>(You did not gain a point.)</i></p>
 [[Proceed to the next puzzle]]
+
+
 
 
 :: Password Correct {"position":"3375,150","size":"100,100"}
@@ -488,7 +485,6 @@ You spend the next few hours wandering through the grand halls of the museum. Yo
 
 
 :: Success Display {"position":"2600,300","size":"100,100"}
-
 <audio src="assets/audio/success.mp3" autoplay></audio>
 
 (if: $guide is "male")[
