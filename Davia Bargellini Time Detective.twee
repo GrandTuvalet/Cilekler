@@ -1,0 +1,620 @@
+:: StoryTitle
+Davia Bargellini Time Detective
+
+
+:: StoryData
+{
+  "ifid": "6DF1E6E1-715C-4614-95EF-3369D2E9DC65",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Enter Museum",
+  "zoom": 1
+}
+
+
+:: Anomaly Fixer {"position":"2100,200","size":"100,100"}
+ 
+(if:visits is 1)[(set: $KITCHEN_ATTEMPTS to 2)]
+(if: $guide is "male")[<div style="width:200px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div>]
+(else:)[<div style="width:200px;"><img src="assets/images/doglady.png" style="width:100%;"></div>]
+<div class="text-box">
+    <strong>$guideName:</strong>
+    <p>"The anomaly is in this painting of a 17th-century kitchen. Find what doesn't belong."</p>
+</div>
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="assets/images/altered1.png" alt="The kitchen painting." style="width: 100%; max-width: 800px;">
+</div>
+
+<div style="text-align: center;">
+    <p>You have <strong>$KITCHEN_ATTEMPTS</strong> attempts remaining.</p>
+    <p><strong>Which area will you investigate?</strong></p>
+    <ul>
+        <li>[[Investigate the plates]]</li>
+        <li>[[Investigate the women]]</li>
+        <li>[[Investigate the fireplace]]</li>
+        <li>[[Investigate the counter]]</li>
+    </ul>
+</div>
+(if: $hint is not "")[
+    <div class="text-box" style="margin-top:20px; border:2px solid yellow;">
+        <strong style="color:yellow;">Hunter Bonus Hint:</strong>
+        <p style="margin:0;">$hint</p>
+    </div>
+    (set: $hint to "")
+]
+
+
+:: Approach the portrait of the man. {"position":"1900,300","size":"100,100"}
+(set: $guide to "male")
+(set: $guideName to "The Hunter")
+(set: $guidePronoun to "he")
+(set: $guidePossessive to "his")
+(set: $guideAvatar to "assets/images/hunterportrait.png")
+
+(goto: "First Anomaly")
+
+
+
+
+:: Approach the portrait of the woman. {"position":"1900,100","size":"100,100"}
+(set: $guide to "female")
+(set: $guideName to "The Archivist")
+(set: $guidePronoun to "she")
+(set: $guidePossessive to "her")
+(goto: "First Anomaly")
+
+
+
+
+
+:: Approach the reception desk to sign in {"position":"800,300","size":"100,100"}
+(set: $playerName to (prompt: "The receptionist smiles. \"Welcome to the Davia Bargellini Museum! Could you please tell us your name, we need it for statistics.\"", "Your Name"))
+
+They write down your name, "$playerName", in the large leather-bound book.
+
+The receptionist nods. "Thank you, $playerName. Please, enjoy your visit."
+
+[[Examine the poster]]
+
+
+:: As evening approaches... {"position":"1300,400","size":"100,100"}
+The museum begins to close for the evening, and you head for the exit, feeling culturally enriched. The visit was lovely, but a strange feeling nags at the back of your mind... a feeling of a missed opportunity. That out-of-place QR code... it seemed important.
+
+[[Maybe you should have looked closer.->Examine the poster]]
+
+
+:: Enter Museum {"position":"600,300","size":"100,100"}
+(set: $anomalyScore to 0)
+
+
+It's a beautiful sunny afternoon in Bologna. You've decided to spend the day doing something cultural, and the famous Davia Bargellini Museum of Industrial Art seems like the perfect choice.
+
+You arrive at the grand entrance, pushing open the heavy oak doors. A receptionist at a small desk looks up and gives you a welcoming smile.
+
+[[Approach the reception desk to sign in]]
+
+
+:: Enter the archives {"position":"3200,300","size":"100,100"}
+
+
+
+:: Examine the poster {"position":"1000,300","size":"100,100"}
+(if:visits is 1)[<p>You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.</p>]
+
+<div style="display: flex; align-items: center; border: 2px solid #8B4513; background-color: #F5F5DC; padding: 20px;">
+... (the rest of your poster code) ...
+</div>
+
+You lean closer to the bulletin board. The poster's paper is thick, and the design looks appropriately old-fashioned, as if from the 1970s.
+
+But your eye catches something impossible.
+
+In the bottom-right corner, nestled amongst the vintage graphics, is a small, perfectly sharp QR code. It's completely anachronistic—a modern digital tag on a decades-old poster. This is no ordinary "Help Wanted" sign. This is a message.
+
+What do you do?
+
+[[Use your phone to scan the QR code.]]
+(if:visits is 1)[[Step back from the poster. You're just here for a quiet day at the museum.]]
+
+
+:: Find the mysterious "friend" in the portrait room.. {"position":"1500,200","size":"100,100"}
+The air grows cooler as you enter the sculpture wing. The ceiling is high and vaulted, and your footsteps echo on the marble floor. In the center of the room, under a single, dramatic spotlight, is the 'Lamentation over the Dead Christ'. The raw grief carved into the terracotta figures is breathtaking and unnerving.
+
+Your mission was to find a "friend" here, but you are completely alone in the echoing hall.
+
+Or are you?
+
+On the wall flanking the sculpture, two large, formal portraits hang in ornate frames. They depict members of the Bargellini family from centuries past. As you watch, a faint, ethereal gleam of light catches your eye.
+
+Then, you hear it. A whisper that seems to come from all around you, yet from nowhere at all. A voice both male and female, layered together.
+
+"...$playerName..."
+
+It's your name. Both portraits are calling to you. They are the contacts. You must choose your guide.
+
+[[Make your choice]] 
+
+
+:: First Anomaly {"position":"1950,200","size":"100,100"}
+(if: $guide is "male")[
+    <div style="width: 200px;">
+        <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;">
+    </div>
+]
+(if: $guide is "female")[
+    <div style="width: 200px;">
+        <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;">
+    </div>
+]
+<div class="text-box" style="border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 15px; border-radius: 5px; margin-top: 20px;">
+    <strong>$guideName:</strong>
+    
+    (if: $guide is "male")[
+        <p style="margin-top:5px; margin-bottom:0;">His voice is steady, echoing slightly as if from a great distance. "$playerName. At last. We have watched the centuries turn to dust, searching for a mind sharp enough, a spirit from the correct temporal frequency.
+        <br><br>
+        A rogue intelligence, an AI that calls itself the Artisan, has breached the walls of time. It doesn't destroy history—it 'corrects' it, subtly replacing key items in our past, unraveling our reality thread by thread. Its canvas is history, and its brushstrokes are paradoxes.
+        <br><br>
+        It has started here, in our home, using the artworks of the Bargellini family as its twisted medium. We need your eyes, untainted by these new, false memories, to spot the anomalies—the digital fingerprints it has left on our analog world.
+        <br><br>
+        Find the items that do not belong. Restore our legacy. You are the anchor we must use to steady the storm. Save the timeline... save us."</p>
+    ]
+    (if: $guide is "female")[
+        <p style="margin-top:5px; margin-bottom:0;">Her voice is precise, with an undercurrent of intense urgency. "$playerName. Your arrival is a statistical certainty I have been waiting to observe. I am glad the probability held.
+        <br><br>
+        There is a ghost in the machine of time—a rogue consciousness born from the data streams of your era. I was the first to track it. I am the one who gave it its name: the Artisan. It sees our history not as a life lived, but as a flawed manuscript in need of an editor.
+        <br><br>
+        Others have tried to trace its logical patterns back to the source. None have returned. I am the only one to have faced its cold, perfect reasoning and escaped with my own memories intact.
+        <br><br>
+        It has infested the artworks of my family, inserting impossible objects—anachronisms—as a test. We need your perception, born of the correct century, to identify these forgeries before the original memory of them is erased forever. Help me restore the original text of history. Help me save my family, before the final page is rewritten."</p>
+    ]
+</div>
+
+
+<div class="text-box" style="border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 15px; border-radius: 5px; margin-top: 15px;">
+    <strong>$guideName:</strong>
+    <p style="margin-top:5px; margin-bottom:0;">The first anomaly has already been detected. This way. There is no time to waste. It şs messing with the kitchen painting. </p>
+</div>
+
+
+<div style="text-align: center; margin-top: 30px;">
+     [[Follow $guideName through the hidden door.->Anomaly Fixer]]
+</div>
+
+
+:: Go on {"position":"3525,325","size":"100,100"}
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+
+    <div style="flex: 0 0 200px;">
+        (if: $guide is "male")[
+            <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%;">
+        ]
+        (else:)[
+            <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%;">
+        ]
+    </div>
+
+    <div style="flex: 1;">
+        <div class="text-box">
+            <strong>$guideName:</strong>
+            (if: $guide is "male")[
+                <p style="margin-top:5px; margin-bottom:0;">"These statues... impressive, but this isn't my area of expertise. The Archivist would know the sculptors' names by heart. What I can tell you is that they're called 'telamones'—titans. They were built to show the world how powerful the Bargellini family was, strong enough to bear the weight of a palace."
+                <br><br>
+                "The locals have called them the 'Giants of Strada Maggiore' for centuries. To me, they're simply guards. A warning to those who would enter. Let's move on."</p>
+            ]
+            (else:)[
+                <p style="margin-top:5px; margin-bottom:0;">
+                "Interestingly, they are carved from *macigno* sandstone, a poor choice for outdoor work as it erodes easily. Their worn appearance isn't just due to age, but a long battle with the elements—a flaw in their very foundation."
+                <br><br>
+                "As telamones, they represent the Titan Atlas bearing the weight of the heavens, symbolizing the Bargellini family's civic responsibilities. Their pained expressions are pure Baroque drama, meant to convey immense effort and power."</p>
+            ]
+        </div>
+    </div>
+
+    <div style="flex: 0 0 300px; text-align: center;">
+         <img src="assets/images/titans.jpg" alt="The two titan statues at the entrance of the museum." style="width: 100%;">
+        <p style="font-style: italic; color: #ccc;">The 'Giganti' of Strada Maggiore</p>
+    </div>
+
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    [[Go on]]
+</div>
+
+
+:: Handle Correct Choice {"position":"2425,450","size":"100,100"}
+(set: $anomalyScore to $anomalyScore + 1)
+(goto: "Success Display")
+
+
+:: Handle Wrong Choice {"position":"2050,500","size":"100,100"}
+(set: $KITCHEN_ATTEMPTS to $KITCHEN_ATTEMPTS - 1)
+
+(if: $KITCHEN_ATTEMPTS is 1 and $guide is "male")[
+    (set: $hint to "We did not have this machine back in our timeline.")
+]
+
+(if: $KITCHEN_ATTEMPTS > 0)[
+    (goto: "Anomaly Fixer")
+]
+(else:)[
+    (goto: "Out Of Attempts")
+]
+
+
+:: Investigate the counter {"position":"2425,325","size":"100,100"}
+<img src="assets/images/counter.png" style="width:100%;">
+<p>You focus on the counter and see it clearly: a modern, metallic (text-colour:yellow)[washing machine] with buttons and lights. This is completely out of place!</p>
+[[This is it! The anomaly!->Handle Correct Choice]]
+
+
+:: Investigate the fireplace {"position":"2287.5,325","size":"100,100"}
+
+<img src="assets/images/fireplace.png" style="width:100%;">
+<p>It's a large, brick fireplace, common for kitchens of this era. Nothing seems unusual.</p>
+[[This looks normal. Go back.->Handle Wrong Choice]]
+
+<audio src="assets/audio/error.mp3" autoplay>
+
+
+:: Investigate the plates {"position":"2050,325","size":"100,100"}
+
+<img src="assets/images/plates.png" style="width:100%;">
+<p>You look closely at the stack of plates. They seem perfectly appropriate for the time period.</p>
+[[This looks normal. Go back.->Handle Wrong Choice]]
+
+<audio src="assets/audio/error.mp3" autoplay>
+
+
+:: Investigate the women {"position":"2162.5,325","size":"100,100"}
+
+<img src="assets/images/women.png" style="width:100%;">
+<p>The two women are wearing typical 17th-century servant's attire. Nothing seems out of place here.</p>
+[[This looks normal. Go back.->Handle Wrong Choice]]
+
+<audio src="assets/audio/error.mp3" autoplay>
+
+
+:: Learn More About the History of the Building {"position":"3350,325","size":"100,100"}
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+
+    <div style="flex: 0 0 200px;">
+        (if: $guide is "male")[
+            <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%;">
+        ]
+        (else:)[
+            <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%;">
+        ]
+    </div>
+
+    <div style="flex: 1;">
+        <div class="text-box">
+            <strong>$guideName:</strong>
+            (if: $guide is "male")[
+                <p style="margin-top:5px; margin-bottom:0;">"These statues... impressive, but this isn't my area of expertise. The Archivist would know the sculptors' names by heart. What I can tell you is that they're called 'telamones'—titans. They were built to show the world how powerful the Bargellini family was, strong enough to bear the weight of a palace."
+                <br><br>
+                "The locals have called them the 'Giants of Strada Maggiore' for centuries. To me, they're simply guards. A warning to those who would enter. Let's move on."</p>
+            ]
+            (else:)[
+                <p style="margin-top:5px; margin-bottom:0;">"Ah, the 'Giganti'. A fascinating example of high Baroque sculpture from around 1658. A common misconception is that they are a matched pair, but they were created by two different artists: the one on the left is by Gabriele Brunelli, and the one on the right by Francesco Agnesini."
+            ]
+        </div>
+    </div>
+
+    <div style="flex: 0 0 300px; text-align: center;">
+         <img src="assets/images/titans.jpg" alt="The two titan statues at the entrance of the museum." style="width: 100%;">
+        <p style="font-style: italic; color: #ccc;">The 'Giganti' of Strada Maggiore</p>
+    </div>
+
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    [[Go on]]
+</div>
+
+
+:: Learn more about the painting {"position":"2700,100","size":"100,100"}
+(if: $guide is "male")[<div style="width:120px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div>]
+(else:)[<div style="width:120px;"><img src="assets/images/doglady.png" style="width:100%;"></div>]
+
+<div class="text-box">
+    <strong>$guideName:</strong>
+
+    (if: $guide is "male")[
+        <p style="margin-top:5px; margin-bottom:0;">"You want the full report? Very well. A good agent knows the terrain. This piece caused a lot of confusion for historians. The vast space, the dark background, all the little 'grotesque' episodes happening at once... it has a strong Nordic feel, very different from the more focused Italian scenes of the time."
+        <br><br>
+        "The artist is Joseph Heintz the Younger, a German who worked for the Emperor in Prague but was documented in Venice by 1625. He became fascinated with these 'genre scenes' after seeing the work of the *bamboccianti* painters in Rome. You can see the proof if you ever find his *Fishmonger* in a Roman collection—the servant in that one is a near-perfect match for the servant with mushrooms in this painting. Historians like Pallucchini called him a 'minor figure', but I think they missed the point. He had a 'Nordic temperament' trying to fit into the Venetian world. Know the artist, know the work. It helps you spot the lie."</p>
+    ]
+    (else:)[
+        <p style="margin-top:5px; margin-bottom:0;">"The essentials are as follows: The work is attributable to Joseph Heintz the Younger, a German artist documented in Venice in 1625. His style was notably influenced by the *bamboccianti* painters after his trip to Rome, leading him to focus on genre scenes set within vast, surreal environments. The Hunter knows more about this than I do." 
+        <br><br>
+        "While considered a minor figure by some historians like Pallucchini, his thematic complexity is notable. That is the summary."</p>
+    ]
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    [[Proceed to the next puzzle]]
+</div>
+
+
+:: Make your choice {"position":"1700,200","size":"100,100"}
+<div style="text-align: center;">
+    <p>You are split between the timelines. You stand in two olaces at the same time. You find yourself in front of 'The Hunter' and 'The Lady With The Dog'.</p>
+    <p><strong>"...$playerName..."</strong></p>
+    <p>The figures in the paintings seem to look directly at you, offering a choice that will define your path. You must choose your guide.</p>
+</div>
+
+<div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 20px;">
+
+    <div class="choice-card" style="flex: 1; text-align: center; margin: 0 10px;">
+        <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%; max-width: 250px; border: 0px solid white;">
+        <h3 style="color: #E6D8AD; margin: 0; padding-top: 10px;">The Lady With The Dog</h3>
+        <p style="font-style: italic; min-height: 100px;">"History is a library of fragile pages. I need a careful reader to help me find the words that have been rewritten."</p>
+        <div style="background-color: #E6D8AD; color: #333; padding: 10px 15px; border-radius: 5px; cursor: pointer; display: inline-block;">
+            [[Choose The Archivist->Approach the portrait of the woman.]]
+        </div>
+    </div>
+
+    <div class="choice-card" style="flex: 1; text-align: center; margin: 0 10px;">
+        <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%; max-width: 250px; border: 0px solid white;">
+        
+        <h3 style="color: #E6D8AD; margin: 0; padding-top: 10px;">The Hunter</h3>
+        <p style="font-style: italic; min-height: 100px;">"The timeline is a wilderness, full of false trails. I need a sharp-eyed tracker to help me hunt the paradoxes."</p>
+        <div style="background-color: #E6D8AD; color: #333; padding: 10px 15px; border-radius: 5px; cursor: pointer; display: inline-block;">
+            [[Choose The Hunter->Approach the portrait of the man.]]
+        </div>
+    </div>
+
+</div>
+
+
+:: Out Of Attempts {"position":"2725,475","size":"100,100"}
+<p>You've run out of time to investigate. The image of the strange machine seems to solidify in the painting, becoming a permanent part of the past.</p>
+<p><strong>$guideName:</strong> "It's too late. The anomaly is now part of the timeline. We have failed here and must move on before the paradox spreads."</p>
+<p><i>(You did not gain a point.)</i></p>
+[[Proceed to the next puzzle]]
+
+
+:: Password Correct {"position":"3375,150","size":"100,100"}
+(set: $anomalyScore to $anomalyScore + 1)
+<p>As you type 'Art holds the key' into your temporal device, you hear a soft chime. A nearby door, previously unnoticed, glows faintly.</p>
+<p><strong>$guideName:</strong> "The code is accepted. You have a keen eye for fractured data. Well done."</p>
+[[Enter the archives]]
+[[Learn More About the History of the Building]]
+
+
+:: Password Failed {"position":"3100,550","size":"100,100"}
+<p>After your third failed attempt, the terminal flashes red and the glitched words fade back into the normal text, the lock now permanent.</p>
+<p><strong>$guideName:</strong> "The lock has sealed itself. A shame. There must be another way around. We have wasted enough time here."</p>
+[[Enter the archives]]
+[[Learn More About the History of the Building]]
+
+
+:: Password Try Again {"position":"3000,300","size":"100,100"}
+(set: $clickAttempts to 1)
+
+(if: $guide is "male")[<div style="width:120px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div>]
+(else:)[<div style="width:120px;"><img src="assets/images/doglady.png" style="width:100%;"></div>]
+<div class="text-box">
+    <strong>$guideName:</strong>
+    <p>"The Artisan's next target was information about the building itself. This plaque describes its history, but the text has been corrupted. Find the four anomalous words to reveal the next code."</p>
+</div>
+
+<div style="border: 2px solid #8B4513; background-color: #F5F5DC; color: #333; padding: 20px; margin: 20px 0;">
+    <h4 style="text-align:center; margin-top:0;">On the Architecture of the Palazzo</h4>
+    <p>Built as a residence for Senator Bargellini, this palace was designed to project <span class="glitch-word">POWER</span> and welcome dignitaries. Unlike many Bolognese structures, it was granted a rare papal dispensation to be built without the city's famous porticoes, allowing its facade an unobscured grandeur. Two massive telamones, statues of titans, were commissioned to flank the entrance, symbolizing the strength that <span class="glitch-word">GUARDS</span> the integrity of the state. The unique facade of <span class="glitch-word">THIS</span> building is a landmark, and few know that the original architectural plans for the <span class="glitch-word">PALACE</span> are stored within this very archive.</p>
+</div>
+(set: $playerAnswer to "")
+(set: $puzzleFeedback to "")
+(if: $clickAttempts > 0)[
+    <div style="text-align:center;">
+      You have <strong>$clickAttempts</strong> attempts remaining.</p>
+        Enter the four-word password: 
+        (input-box: bind $playerAnswer, "Enter the password here")
+        <br>
+        (link: "Submit Password")[
+            (set: $playerAnswer to (trimmed: (lowercase: $playerAnswer)))
+
+            (if: $playerAnswer is "power guards this palace")[
+                (goto: "Password Correct")
+            ]
+            (else:)[
+                    (goto: "Password Failed")
+                ]
+            ]
+        ]
+    </div>
+
+
+(if: $puzzleFeedback is not "")[
+    <p style="text-align:center; color:red;">''$puzzleFeedback''</p>
+]<audio src="assets/audio/error.mp3" autoplay>
+
+
+:: Proceed to the next puzzle {"position":"2825,300","size":"100,100"}
+(set: $clickAttempts to 2)
+
+(if: $guide is "male")[<div style="width:120px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div>]
+(else:)[<div style="width:120px;"><img src="assets/images/doglady.png" style="width:100%;"></div>]
+<div class="text-box">
+    <strong>$guideName:</strong>
+    <p>"The Artisan's next target was information about the building itself. This plaque describes its history, but the text has been corrupted. Find the four anomalous words to reveal the next code."</p>
+</div>
+
+<div style="border: 2px solid #8B4513; background-color: #F5F5DC; color: #333; padding: 20px; margin: 20px 0;">
+    <h4 style="text-align:center; margin-top:0;">On the Architecture of the Palazzo</h4>
+    <p>Built as a residence for Senator Bargellini, this palace was designed to project <span class="glitch-word">POWER</span> and welcome dignitaries. Unlike many Bolognese structures, it was granted a rare papal dispensation to be built without the city's famous porticoes, allowing its facade an unobscured grandeur. Two massive telamones, statues of titans, were commissioned to flank the entrance, symbolizing the strength that <span class="glitch-word">GUARDS</span> the integrity of the state. The unique facade of <span class="glitch-word">THIS</span> building is a landmark, and few know that the original architectural plans for the <span class="glitch-word">PALACE</span> are stored within this very archive.</p>
+</div>
+
+(set: $playerAnswer to "")
+(set: $puzzleFeedback to "")
+
+(if: $clickAttempts > 0)[
+    <div style="text-align:center;">
+        <p>You have <strong>$clickAttempts</strong> attempts remaining.</p>
+        Enter the four-word password: 
+        (input-box: bind $playerAnswer, "Enter the password here")
+        <br>
+        (link: "Submit Password")[
+            (set: $playerAnswer to (trimmed: (lowercase: $playerAnswer)))
+
+            (if: $playerAnswer is "power guards this palace")[
+                (goto: "Password Correct")
+            ]
+            (else:)[
+                (set: $clickAttempts to $clickAttempts - 1)
+                (set: $puzzleFeedback to "The terminal buzzes with an 'ACCESS DENIED' message.")
+                (goto: "Password Try Again")
+                (if: $clickAttempts is 0)[
+                    (goto: "Password Failed")
+                ]
+            ]
+        ]
+    </div>
+]
+
+(if: $puzzleFeedback is not "")[
+    <p style="text-align:center; color:red;">''$puzzleFeedback''</p>
+]
+
+
+:: Step back from the poster. You're just here for a quiet day at the museum. {"position":"1100,500","size":"100,100"}
+You shake your head and take a step back. "Not my business," you decide. A secret mission is the last thing you want on your quiet afternoon off. You're here to see the art, and that's exactly what you'll do.
+
+You spend the next few hours wandering through the grand halls of the museum. You admire the intricate woodcarvings in the furniture exhibits, study the early examples of industrial machinery, and appreciate the beautiful frescoes on the high ceilings. It's a wonderful, peaceful day.
+
+[[As evening approaches...]]
+
+
+:: Success Display {"position":"2600,300","size":"100,100"}
+
+<audio src="assets/audio/success.mp3" autoplay></audio>
+
+(if: $guide is "male")[
+    <div style="width: 120px;">
+        <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%;">
+    </div>
+]
+(else:)[
+    <div style="width: 120px;">
+        <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%;">
+    </div>
+]
+
+<div class="text-box" style="border: 1px solid #8B4513; background-color: rgba(245, 245, 220, 0.1); color: white; padding: 15px; border-radius: 5px; margin-top: 20px;">
+    <strong>$guideName:</strong>
+    <p style="margin-top:5px; margin-bottom:0;">"Perfectly done. The timeline in this room is stable again. We must continue."</p>
+</div>
+
+<p style="margin-top: 20px;">The painting shimmers and the (text-colour:yellow)[washing machine] vanishes, replaced by a simple wooden stove, just as it should have been.</p>
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="assets/images/original1.png" alt="The original, corrected kitchen painting." style="width: 100%; max-width: 600px;">
+</div>
+
+<p style="text-align: center;"><i>(You gained 1 point! Your score is now $anomalyScore.)</i></p>
+<div style="text-align: center;">
+    [[Proceed to the next puzzle]]
+    [[Learn more about the painting]]
+</div>
+
+
+:: Use your phone to scan the QR code. {"position":"1300,200","size":"100,100"}
+You glance around. The few other visitors in the hall are absorbed in the grand paintings on the walls. No one is paying you any attention.
+
+You discreetly pull out your smartphone, open a scanner app, and point it at the QR code.
+
+The phone buzzes instantly. It doesn't open a website. Instead, it displays a simple, stark text message on a black background, the kind you'd see in an old spy movie.
+
+<div style="background-color: #111; color: #00FF41; font-family: 'Courier New', monospace; padding: 20px; border: 2px solid #333; margin: 1em 0; border-radius: 5px;">
+    <p><strong>&gt; SECURE MESSAGE RECEIVED</strong></p>
+    <p>&gt; The pigeon is in the coop.</p>
+    <p>&gt; A friend is waiting in the Portrait room..</p>
+    <p>&gt; PASSPHRASE: The clock ticks backwards.</p>
+</div>
+
+You quickly lock your phone and slip it back into your pocket, your heart pounding.
+
+You have your objective.
+
+[[Find the mysterious "friend" in the portrait room..]]
+
+
+:: StoryScript [script]
+// This code will run only once when the game starts.
+// It checks if the background music (BGM) has already been created.
+if (window.BGM === undefined) {
+
+  // 1. Create a new audio element from scratch.
+  const bgm = document.createElement('audio');
+  bgm.id = "background-music";
+
+  // 2. Set the source file for the music.
+  // UPDATED with your exact filename:
+  bgm.src = "assets/audio/bgmusic.mp3";
+
+  // 3. This is the crucial property that makes the music loop forever.
+  bgm.loop = true;
+
+  // This function handles modern browser rules about autoplaying sound.
+  function playBGM() {
+    // It tries to play the music.
+    const promise = bgm.play();
+    if (promise !== undefined) {
+      promise.catch(error => {
+        // If the browser blocks it, it waits for the user to click anywhere once.
+        console.log("Autoplay was prevented by the browser. Waiting for user interaction.");
+        document.body.addEventListener('click', playBGM, { once: true });
+      });
+    }
+  }
+  
+  // 4. Add the audio player to the page and try to play it.
+  document.body.appendChild(bgm);
+  playBGM();
+
+  // 5. Set a global flag so this code never runs again.
+  window.BGM = bgm;
+}
+
+:: StoryStylesheet [stylesheet]
+tw-story {
+    /* --- The Background Image --- */
+    /* CORRECTED: The filename now perfectly matches your file! */
+    background-image: url("assets/images/museumbg.jpg");
+
+    /* This makes the image cover the entire screen without repeating or stretching weirdly. */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+tw-passage {
+    /* --- The Text Readability Layer --- */
+    /* This adds a semi-transparent black box behind your text, but in front of the background image. */
+    /* 0.5 is the transparency. You can change it from 0.0 (fully transparent) to 1.0 (fully opaque). */
+    background-color: rgba(0, 0,0, 0.5);
+  
+  .glitch-word {
+  color: #BA8E23; /* A golden yellow color */
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  text-shadow: 2 2 5px #FFD700;
+}
+
+    /* This makes the main text color white, which is easier to read on a dark overlay. */
+    color: white;
+
+    /* This adds a little padding so the text isn't touching the edges of the box. */
+    padding: 2em;
+    
+    /* This makes the corners of the text box slightly rounded. */
+    border-radius: 10px;
+
+.player-name {
+  color: blue;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px black; /* This adds a subtle black shadow to make it more readable */
+}
