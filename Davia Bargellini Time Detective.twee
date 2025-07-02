@@ -126,7 +126,6 @@ You arrive at the grand entrance, pushing open the heavy oak doors. A receptioni
 
 
 :: Enter the archives {"position":"3725,275","size":"100,100"}
-
 (if: $anomalyScore is 2)[
     (goto: "Good Ending")
 ]
@@ -248,7 +247,6 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 </div>
 
 
-
 :: Go On {"position":"4275,200","size":"100,100"}
 The world dissolves in a flash of light... and then reforms with a jolt.
 
@@ -281,13 +279,13 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
             (if: $guide is "male")[
                 <p style="margin-top:5px; margin-bottom:0;">"These statues... impressive, but this isn't my area of expertise. The Archivist would know the sculptors' names by heart. What I can tell you is that they're called 'telamones'—titans. They were built to show the world how powerful the Bargellini family was, strong enough to bear the weight of a palace."
                 <br><br>
-                "The locals have called them the 'Giants of Strada Maggiore' for centuries. To me, they're simply guards. A warning to those who would enter. Let's move on."</p>
+                "The locals have called them the 'Giants of Strada Maggiore' for centuries. To me, they're simply guards. A warning to those who would enter. Let's move on."</p> <audio src="assets/audio/hunter8.mp3" autoplay></audio>
             ]
             (else:)[
                 <p style="margin-top:5px; margin-bottom:0;">
                 "Interestingly, they are carved from *macigno* sandstone, a poor choice for outdoor work as it erodes easily. Their worn appearance isn't just due to age, but a long battle with the elements—a flaw in their very foundation."
                 <br><br>
-                "As telamones, they represent the Titan Atlas bearing the weight of the heavens, symbolizing the Bargellini family's civic responsibilities. Their pained expressions are pure Baroque drama, meant to convey immense effort and power."</p>
+                "As telamones, they represent the Titan Atlas bearing the weight of the heavens, symbolizing the Bargellini family's civic responsibilities. Their pained expressions are pure Baroque drama, meant to convey immense effort and power."</p> <audio src="assets/audio/lady9.mp3" autoplay></audio>
             ]
         </div>
     </div>
@@ -344,8 +342,6 @@ Suddenly, your phone starts to emit a small temporal beam!
 ]
 
 
-
-
 :: Investigate the counter {"position":"2425,325","size":"100,100"}
 <img src="assets/images/counter.png" style="width:100%;">
 <p>You focus on the counter and see it clearly: a modern, metallic (text-colour:yellow)[washing machine] with buttons and lights. This is completely out of place!</p>
@@ -395,10 +391,11 @@ Suddenly, your phone starts to emit a small temporal beam!
                 <p style="margin-top:5px; margin-bottom:0;">"These statues... impressive, but this isn't my area of expertise. The Archivist would know the sculptors' names by heart. What I can tell you is that they're called 'telamones'—titans. They were built to show the world how powerful the Bargellini family was, strong enough to bear the weight of a palace."
                 <br><br>
                 "The locals have called them the 'Giants of Strada Maggiore' for centuries. To me, they're simply guards. A warning to those who would enter. Let's move on."</p>
+<audio src="assets/audio/hunter8.mp3" autoplay></audio>
             ]
             (else:)[
                 <p style="margin-top:5px; margin-bottom:0;">"Ah, the 'Giganti'. A fascinating example of high Baroque sculpture from around 1658. A common misconception is that they are a matched pair, but they were created by two different artists: the one on the left is by Gabriele Brunelli, and the one on the right by Francesco Agnesini."
-            ]
+          <audio src="assets/audio/lady8.mp3" autoplay></audio>  ]
         </div>
     </div>
 
@@ -425,11 +422,12 @@ Suddenly, your phone starts to emit a small temporal beam!
         <p style="margin-top:5px; margin-bottom:0;">"You want the full report? Very well. A good agent knows the terrain. This piece caused a lot of confusion for historians. The vast space, the dark background, all the little 'grotesque' episodes happening at once... it has a strong Nordic feel, very different from the more focused Italian scenes of the time."
         <br><br>
         "The artist is Joseph Heintz the Younger, a German who worked for the Emperor in Prague but was documented in Venice by 1625. He became fascinated with these 'genre scenes' after seeing the work of the *bamboccianti* painters in Rome. You can see the proof if you ever find his *Fishmonger* in a Roman collection—the servant in that one is a near-perfect match for the servant with mushrooms in this painting. Historians like Pallucchini called him a 'minor figure', but I think they missed the point. He had a 'Nordic temperament' trying to fit into the Venetian world. Know the artist, know the work. It helps you spot the lie."</p>
-    ]
+ <audio src="assets/audio/hunter5.mp3" autoplay></audio>   ]
     (else:)[
         <p style="margin-top:5px; margin-bottom:0;">"The essentials are as follows: The work is attributable to Joseph Heintz the Younger, a German artist documented in Venice in 1625. His style was notably influenced by the *bamboccianti* painters after his trip to Rome, leading him to focus on genre scenes set within vast, surreal environments. The Hunter knows more about this than I do." 
         <br><br>
         "While considered a minor figure by some historians like Pallucchini, his thematic complexity is notable. That is the summary."</p>
+<audio src="assets/audio/lady5.mp3" autoplay></audio>
     ]
 </div>
 
@@ -484,8 +482,8 @@ It's the QR code from the poster. Small, sharp, and impossibly real.
 <p><strong>$guideName:</strong> "It's too late. The anomaly is now part of the timeline. We have failed here and must move on before the paradox spreads."</p>
 <p><i>(You did not gain a point.)</i></p>
 [[Proceed to the next puzzle]]
-
-
+(if: $guide is "male")[<audio src="assets/audio/hunter3.2.mp3" autoplay></audio>]
+(else:)[<audio src="assets/audio/lady3.2.mp3" autoplay></audio>]
 
 
 :: Password Correct {"position":"3075,125","size":"100,100"}
@@ -495,12 +493,18 @@ It's the QR code from the poster. Small, sharp, and impossibly real.
 [[Enter the archives]]
 [[Learn More About the History of the Building]]
 
+(if: $guide is "male")[<audio src="assets/audio/hunter7.2.mp3" autoplay></audio>]
+(else:)[<audio src="assets/audio/lady7.2.mp3" autoplay></audio>]
+
 
 :: Password Failed {"position":"3150,600","size":"100,100"}
 <p>After your third failed attempt, the terminal flashes red and the glitched words fade back into the normal text, the lock now permanent.</p>
 <p><strong>$guideName:</strong> "The lock has sealed itself. A shame. There must be another way around. We have wasted enough time here."</p>
 [[Enter the archives]]
 [[Learn More About the History of the Building]]
+
+(if: $guide is "male")[<audio src="assets/audio/hunter7.1.mp3" autoplay></audio>]
+(else:)[<audio src="assets/audio/lady7.1.mp3" autoplay></audio>]
 
 
 :: Password Try Again {"position":"3125,300","size":"100,100"}
@@ -562,12 +566,13 @@ It's the QR code from the poster. Small, sharp, and impossibly real.
             <p style="margin-top:5px; margin-bottom:0;">"The Artisan is getting bolder. It's no longer just corrupting items *in* the paintings. It's now attacking the very history of this place—the manuscripts, the historical records in the archives."
             <br><br>
             "If we lose those, we lose the map of the timeline itself. We must hurry before the damage becomes irreversible."</p>
+<audio src="assets/audio/hunter44.mp3" autoplay></audio>
         ]
         (else:)[
             <p style="margin-top:5px; margin-bottom:0;">"The corruption is spreading faster than I predicted. The AI's attacks are evolving. It has moved beyond physical anachronisms and is now targeting the source code of our history—the manuscripts and charters."
             <br><br>
             "It is trying to erase the data of what *was* to solidify its new reality. We must protect the archives before the original records are lost forever."</p>
-        ]
+     <audio src="assets/audio/lady44.mp3" autoplay></audio>   ]
     </div>
 
     <div style="margin-top: 30px;">
@@ -580,8 +585,8 @@ It's the QR code from the poster. Small, sharp, and impossibly real.
 :: Puzzle2 {"position":"2975,300","size":"100,100"}
 (set: $clickAttempts to 2)
 
-(if: $guide is "male")[<div style="width:120px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div>]
-(else:)[<div style="width:120px;"><img src="assets/images/doglady.png" style="width:100%;"></div>]
+(if: $guide is "male")[<div style="width:120px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div><audio src="assets/audio/hunter6.mp3" autoplay></audio>]
+(else:)[<div style="width:120px;"><img src="assets/images/doglady.png" style="width:100%;"></div><audio src="assets/audio/lady6.mp3" autoplay></audio>]
 <div class="text-box">
     <strong>$guideName:</strong>
     <p>"The Artisan's next target was information about the building itself. This plaque describes its history, but the text has been corrupted. Find the four anomalous words to reveal the next code."</p>
@@ -638,11 +643,13 @@ You spend the next few hours wandering through the grand halls of the museum. Yo
 (if: $guide is "male")[
     <div style="width: 200px;">
         <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%;">
+<audio src="assets/audio/hunter4.1.mp3" autoplay></audio>
     </div>
 ]
 (else:)[
     <div style="width: 200px;">
         <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%;">
+<audio src="assets/audio/lady4.1.mp3" autoplay></audio>
     </div>
 ]
 
@@ -705,7 +712,6 @@ You spend the next few hours wandering through the grand halls of the museum. Yo
     </div>
 
 </div>
-
 
 
 :: Use your phone to scan the QR code. {"position":"1300,200","size":"100,100"}
