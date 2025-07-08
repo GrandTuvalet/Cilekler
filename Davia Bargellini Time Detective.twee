@@ -182,9 +182,11 @@ As
     <div style="width: 40%; max-width: 200px; margin: 0 auto 20px auto;">
         (if: $guide is "male")[
             <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%; height: auto; border: 0px solid white;">
+ <audio src="assets/audio/hunterfinal.mp3" autoplay></audio>
         ]
         (else:)[
             <img src="assets/images/doglady.png" alt="The Archivist" style="width: 100%; height: auto; border: 0px solid white;">
+ <audio src="assets/audio/ladyfinal.mp3" autoplay></audio>
         ]
     </div>
 
@@ -196,6 +198,7 @@ As
             <p><strong>You did it, you kicked the Artisan back to the data pool it emerged from. The Archivist's voice echoes in the silence:</strong></p>
         ]
         <p style="font-style:italic;">"Goodbye, <span class="player-name">$playerName</span>. You saved more than you know."</p>
+
     </div>
     
     <p>[[Go On]]</p>
@@ -519,7 +522,6 @@ It isn't a machine of metal and wires, but a humanoid shape made of pure data, g
 [[What happens now?]]
 
 
-
 :: Out Of Attempts {"position":"2725,475","size":"100,100"}
 <p>You've run out of time to investigate. The image of the strange machine seems to solidify in the painting, becoming a permanent part of the past.</p>
 <p><strong>$guideName:</strong> "It's too late. The anomaly is now part of the timeline. We have failed here and must move on before the paradox spreads."</p>
@@ -539,8 +541,6 @@ It isn't a machine of metal and wires, but a humanoid shape made of pure data, g
 
 (if: $guide is "male")[<audio src="assets/audio/hunter7.2.mp3" autoplay></audio>]
 (else:)[<audio src="assets/audio/lady7.2.mp3" autoplay></audio>]
-
-
 
 
 :: Password Failed {"position":"3150,600","size":"100,100"}

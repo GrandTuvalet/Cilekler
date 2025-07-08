@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Davia Bargellini Time Detective.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Davia Bargellini Time Detective" startnode="7" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="6DF1E6E1-715C-4614-95EF-3369D2E9DC65" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+<tw-storydata name="Davia Bargellini Time Detective" startnode="8" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="6DF1E6E1-715C-4614-95EF-3369D2E9DC65" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
     /* --- The Background Image --- */
     background-image: url("assets/images/museumbg.jpg");
     background-size: cover;
@@ -157,7 +157,25 @@ The receptionist nods. &quot;Thank you, $playerName. Please, enjoy your visit.&q
 
 [[Examine the poster]]</tw-passagedata><tw-passagedata pid="5" name="As evening approaches..." tags="" position="1300,400" size="100,100">The museum begins to close for the evening, and you head for the exit, feeling culturally enriched. The visit was lovely, but a strange feeling nags at the back of your mind... a feeling of a missed opportunity. That out-of-place QR code... it seemed important.
 
-[[Maybe you should have looked closer.-&gt;Examine the poster]]</tw-passagedata><tw-passagedata pid="6" name="Credits Paintings" tags="" position="4800,200" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
+[[Maybe you should have looked closer.-&gt;Examine the poster]]</tw-passagedata><tw-passagedata pid="6" name="Bad Ending" tags="" position="3925,525" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/badending.mp3&quot;);&lt;/script&gt;
+
+&lt;div style=&quot;text-align: center; padding: 5vh 2em 0 2em;&quot;&gt;
+
+    &lt;p&gt;The world around you glitches violently, and the air grows heavy and still.&lt;/p&gt;
+    &lt;img src=&quot;assets/images/corrupt.png&quot; alt=&quot;The timeline has been corrupted by the Artisan.&quot; style=&quot;max-width: 500px; width: 100%; border: 2px solid darkred; margin: 15px 0;&quot;&gt;
+
+    &lt;div class=&quot;text-box&quot; style=&quot;max-width: 600px; margin: 20px auto;&quot;&gt;
+        &lt;strong&gt;$guideName:&lt;/strong&gt;
+        &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;We&#39;re too late... we should have been more careful. The Artisan has reached its full power.&quot;&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;p style=&quot;margin-top: 20px; font-style: italic;&quot;&gt;&quot;Come on, Time Detective. Take us back. Try again.&quot;&lt;/p&gt;
+
+    &lt;div style=&quot;margin-top: 30px; font-size: 1.2em;&quot;&gt;
+        (link: &quot;Use your temporal device to go back in time&quot;)[(reload:)]
+    &lt;/div&gt;
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Credits Paintings" tags="" position="4800,200" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
 
     &lt;h2&gt;Artworks Featured as Guides&lt;/h2&gt;
 
@@ -185,14 +203,14 @@ The receptionist nods. &quot;Thank you, $playerName. Please, enjoy your visit.&q
         [[The Team Behind It]]
     &lt;/div&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Enter Museum" tags="" position="600,300" size="100,100">(set: $anomalyScore to 0)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Enter Museum" tags="" position="600,300" size="100,100">(set: $anomalyScore to 0)
 
 
 It&#39;s a beautiful sunny afternoon in Bologna. You&#39;ve decided to spend the day doing something cultural, and the famous Davia Bargellini Museum of Industrial Art seems like the perfect choice.
 
 You arrive at the grand entrance, pushing open the heavy oak doors. A receptionist at a small desk looks up and gives you a welcoming smile.
 
-[[Approach the reception desk to sign in]]</tw-passagedata><tw-passagedata pid="8" name="Enter the archives" tags="" position="3725,275" size="100,100">(if: $anomalyScore is 2)[
+[[Approach the reception desk to sign in]]</tw-passagedata><tw-passagedata pid="9" name="Enter the archives" tags="" position="3725,275" size="100,100">(if: $anomalyScore is 2)[
     (goto: &quot;Good Ending&quot;)
 ]
 (if:$anomalyScore is 1)[
@@ -200,7 +218,7 @@ You arrive at the grand entrance, pushing open the heavy oak doors. A receptioni
 ]
 (if:$anomalyScore is 0)[
     (goto: &quot;Bad Ending&quot;)
-    ]</tw-passagedata><tw-passagedata pid="9" name="Examine the poster" tags="" position="1000,300" size="100,100">(if:visits is 1)[&lt;p&gt;You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.&lt;/p&gt;]
+    ]</tw-passagedata><tw-passagedata pid="10" name="Examine the poster" tags="" position="1000,300" size="100,100">(if:visits is 1)[&lt;p&gt;You thank the receptionist and step into the grand entrance of the museum, $playerName. The air is quiet, filled with the faint scent of old wood and history. Your eyes are drawn to a peculiar notice pinned to a large bulletin board on the wall.&lt;/p&gt;]
 &lt;div style=&quot;max-width: 600px; margin: 20px auto;&quot;&gt;
     &lt;img src=&quot;assets/images/qr.jpg&quot; alt=&quot;A mysterious QR code on an old poster&quot; style=&quot;width: 100%; height: auto; display: block;&quot;&gt;
 &lt;/div&gt;
@@ -213,14 +231,16 @@ In the bottom-right corner, nestled amongst the vintage graphics, is a small, pe
 What do you do?
 
 [[Use your phone to scan the QR code.]]
-(if:visits is 1)[[Step back from the poster. You&#39;re just here for a quiet day at the museum.]]</tw-passagedata><tw-passagedata pid="10" name="Final Goodbye" tags="" position="4125,200" size="100,100">&lt;div style=&quot;text-align:center; padding-top: 15vh;&quot;&gt;
+(if:visits is 1)[[Step back from the poster. You&#39;re just here for a quiet day at the museum.]]</tw-passagedata><tw-passagedata pid="11" name="Final Goodbye" tags="" position="4125,200" size="100,100">&lt;div style=&quot;text-align:center; padding-top: 15vh;&quot;&gt;
 As
     &lt;div style=&quot;width: 40%; max-width: 200px; margin: 0 auto 20px auto;&quot;&gt;
         (if: $guide is &quot;male&quot;)[
             &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%; height: auto; border: 0px solid white;&quot;&gt;
+ &lt;audio src=&quot;assets/audio/hunterfinal.mp3&quot; autoplay&gt;&lt;/audio&gt;
         ]
         (else:)[
             &lt;img src=&quot;assets/images/doglady.png&quot; alt=&quot;The Archivist&quot; style=&quot;width: 100%; height: auto; border: 0px solid white;&quot;&gt;
+ &lt;audio src=&quot;assets/audio/ladyfinal.mp3&quot; autoplay&gt;&lt;/audio&gt;
         ]
     &lt;/div&gt;
 
@@ -232,11 +252,12 @@ As
             &lt;p&gt;&lt;strong&gt;You did it, you kicked the Artisan back to the data pool it emerged from. The Archivist&#39;s voice echoes in the silence:&lt;/strong&gt;&lt;/p&gt;
         ]
         &lt;p style=&quot;font-style:italic;&quot;&gt;&quot;Goodbye, &lt;span class=&quot;player-name&quot;&gt;$playerName&lt;/span&gt;. You saved more than you know.&quot;&lt;/p&gt;
+
     &lt;/div&gt;
     
     &lt;p&gt;[[Go On]]&lt;/p&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Find the mysterious &quot;friend&quot; in the portrait room.." tags="" position="1500,200" size="100,100">The air grows cooler as you enter the sculpture wing. The ceiling is high and vaulted, and your footsteps echo on the marble floor. In the center of the room, under a single, dramatic spotlight, is the &#39;Lamentation over the Dead Christ&#39;. The raw grief carved into the terracotta figures is breathtaking and unnerving.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Find the mysterious &quot;friend&quot; in the portrait room.." tags="" position="1500,200" size="100,100">The air grows cooler as you enter the sculpture wing. The ceiling is high and vaulted, and your footsteps echo on the marble floor. In the center of the room, under a single, dramatic spotlight, is the &#39;Lamentation over the Dead Christ&#39;. The raw grief carved into the terracotta figures is breathtaking and unnerving.
 
 Your mission was to find a &quot;friend&quot; here, but you are completely alone in the echoing hall.
 
@@ -252,7 +273,7 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 
 [[Make your choice]]
 
-&lt;audio src=&quot;assets/audio/help2.mp3&quot; autoplay&gt;&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="12" name="First Anomaly" tags="" position="1950,200" size="100,100">(if: $guide is &quot;male&quot;)[
+&lt;audio src=&quot;assets/audio/help2.mp3&quot; autoplay&gt;&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="13" name="First Anomaly" tags="" position="1950,200" size="100,100">(if: $guide is &quot;male&quot;)[
     &lt;div style=&quot;width: 300px; margin: 0 auto;&quot;&gt;
         &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;&quot;&gt;
         &lt;audio src=&quot;assets/audio/hunter1.2.mp3&quot; autoplay&gt;&lt;/audio&gt;
@@ -295,7 +316,7 @@ It&#39;s your name. Both portraits are calling to you. They are the contacts. Yo
 
 &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
      [[Follow $guideName through the hidden door.-&gt;Anomaly Fixer]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Go On" tags="" position="4325,200" size="100,100">The world dissolves in a flash of light... and then reforms with a jolt.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Go On" tags="" position="4325,200" size="100,100">The world dissolves in a flash of light... and then reforms with a jolt.
 
 You feel a gentle tap on your shoulder and turn to see a museum guard looking at you with concern.
 
@@ -305,7 +326,7 @@ Your mind reels. A dream? You look frantically around the hall. Everything is pe
 
 Confused, and with a strange sense of loss, you thank the guard and head for the exit.
 
-[[Leave the museum]]</tw-passagedata><tw-passagedata pid="14" name="Go on" tags="" position="3500,250" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
+[[Leave the museum]]</tw-passagedata><tw-passagedata pid="15" name="Go on" tags="" position="3500,250" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
 
     &lt;div style=&quot;flex: 0 0 200px;&quot;&gt;
         (if: $guide is &quot;male&quot;)[
@@ -342,7 +363,7 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
 
 &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
     [[Enter the archives]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="Good Ending" tags="" position="3850,150" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/linkin.mp3&quot;);&lt;/script&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Good Ending" tags="" position="3850,150" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/linkin.mp3&quot;);&lt;/script&gt;
 
 &lt;p&gt;The room is dark and you hear a strange noise...&lt;/p&gt;
 You step into the archives. Rows upon rows of ancient books and scrolls line the walls, but your attention is drawn to the center of the room.
@@ -358,8 +379,8 @@ It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure dat
 
 Suddenly, your phone starts to emit a small temporal beam!
 
-[[Final Goodbye]]</tw-passagedata><tw-passagedata pid="16" name="Handle Correct Choice" tags="" position="2425,450" size="100,100">(set: $anomalyScore to $anomalyScore + 1)
-(goto: &quot;Success Display&quot;)</tw-passagedata><tw-passagedata pid="17" name="Handle Wrong Choice" tags="" position="2050,500" size="100,100">(set: $KITCHEN_ATTEMPTS to $KITCHEN_ATTEMPTS - 1)
+[[Final Goodbye]]</tw-passagedata><tw-passagedata pid="17" name="Handle Correct Choice" tags="" position="2425,450" size="100,100">(set: $anomalyScore to $anomalyScore + 1)
+(goto: &quot;Success Display&quot;)</tw-passagedata><tw-passagedata pid="18" name="Handle Wrong Choice" tags="" position="2050,500" size="100,100">(set: $KITCHEN_ATTEMPTS to $KITCHEN_ATTEMPTS - 1)
 
 (if: $KITCHEN_ATTEMPTS is 1 and $guide is &quot;male&quot;)[
     (set: $hint to &quot;We did not have this machine back in our timeline.&quot;)
@@ -370,21 +391,21 @@ Suddenly, your phone starts to emit a small temporal beam!
 ]
 (else:)[
     (goto: &quot;Out Of Attempts&quot;)
-]</tw-passagedata><tw-passagedata pid="18" name="Investigate the counter" tags="" position="2425,325" size="100,100">&lt;img src=&quot;assets/images/counter.png&quot; style=&quot;width:100%;&quot;&gt;
+]</tw-passagedata><tw-passagedata pid="19" name="Investigate the counter" tags="" position="2425,325" size="100,100">&lt;img src=&quot;assets/images/counter.png&quot; style=&quot;width:100%;&quot;&gt;
 &lt;p&gt;You focus on the counter and see it clearly: a modern, metallic (text-colour:yellow)[washing machine] with buttons and lights. This is completely out of place!&lt;/p&gt;
-[[This is it! The anomaly!-&gt;Handle Correct Choice]]</tw-passagedata><tw-passagedata pid="19" name="Investigate the fireplace" tags="" position="2287.5,325" size="100,100">&lt;img src=&quot;assets/images/fireplace.png&quot; style=&quot;width:100%;&quot;&gt;
+[[This is it! The anomaly!-&gt;Handle Correct Choice]]</tw-passagedata><tw-passagedata pid="20" name="Investigate the fireplace" tags="" position="2287.5,325" size="100,100">&lt;img src=&quot;assets/images/fireplace.png&quot; style=&quot;width:100%;&quot;&gt;
 &lt;p&gt;It&#39;s a large, brick fireplace, common for kitchens of this era. Nothing seems unusual.&lt;/p&gt;
 [[This looks normal. Go back.-&gt;Handle Wrong Choice]]
 
-&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="20" name="Investigate the plates" tags="" position="2050,325" size="100,100">&lt;img src=&quot;assets/images/plates.png&quot; style=&quot;width:100%;&quot;&gt;
+&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="21" name="Investigate the plates" tags="" position="2050,325" size="100,100">&lt;img src=&quot;assets/images/plates.png&quot; style=&quot;width:100%;&quot;&gt;
 &lt;p&gt;You look closely at the stack of plates. They seem perfectly appropriate for the time period.&lt;/p&gt;
 [[This looks normal. Go back.-&gt;Handle Wrong Choice]]
 
-&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="21" name="Investigate the women" tags="" position="2162.5,325" size="100,100">&lt;img src=&quot;assets/images/women.png&quot; style=&quot;width:100%;&quot;&gt;
+&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="22" name="Investigate the women" tags="" position="2162.5,325" size="100,100">&lt;img src=&quot;assets/images/women.png&quot; style=&quot;width:100%;&quot;&gt;
 &lt;p&gt;The two women are wearing typical 17th-century servant&#39;s attire. Nothing seems out of place here.&lt;/p&gt;
 [[This looks normal. Go back.-&gt;Handle Wrong Choice]]
 
-&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="22" name="Learn More About the History of the Building" tags="" position="3300,275" size="100,100">&lt;div class=&quot;responsive-three-column&quot;&gt;
+&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="23" name="Learn More About the History of the Building" tags="" position="3300,275" size="100,100">&lt;div class=&quot;responsive-three-column&quot;&gt;
 
     &lt;div class=&quot;column-left&quot;&gt;
         (if: $guide is &quot;male&quot;)[
@@ -422,7 +443,7 @@ Suddenly, your phone starts to emit a small temporal beam!
 
 &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
     [[Go on]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Learn more about the painting" tags="" position="2700,100" size="100,100">(if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Learn more about the painting" tags="" position="2700,100" size="100,100">(if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
 (else:)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/doglady.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
 
 &lt;div class=&quot;text-box&quot;&gt;
@@ -443,13 +464,13 @@ Suddenly, your phone starts to emit a small temporal beam!
 
 &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
     [[Proceed to the next puzzle]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Leave the museum" tags="" position="4550,200" size="100,100">You walk out of the grand doors and into the evening light of Bologna. &quot;What a strange day,&quot; you think to yourself, shaking your head to clear the last remnants of the vivid dream.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Leave the museum" tags="" position="4550,200" size="100,100">You walk out of the grand doors and into the evening light of Bologna. &quot;What a strange day,&quot; you think to yourself, shaking your head to clear the last remnants of the vivid dream.
 
 You put your hand in your pocket, and your fingers touch a small, square piece of thick, old paper. You pull it out.
 
 It&#39;s the QR code from the poster. Small, sharp, and impossibly real.
 
-[[It was all real.-&gt;Credits Paintings]]</tw-passagedata><tw-passagedata pid="25" name="Make your choice" tags="" position="1700,200" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
+[[It was all real.-&gt;Credits Paintings]]</tw-passagedata><tw-passagedata pid="26" name="Make your choice" tags="" position="1700,200" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
     &lt;p&gt;You are split between the timelines. You stand in two places at the same time. You find yourself in front of &#39;The Hunter&#39; and &#39;The Lady With The Dog&#39;.&lt;/p&gt;
     &lt;p&gt;&lt;strong&gt;&quot;...$playerName...&quot;&lt;/strong&gt;&lt;/p&gt;
     &lt;p&gt;The figures in the paintings seem to look directly at you, offering a choice that will define your path. You must choose your guide.&lt;/p&gt;
@@ -476,12 +497,24 @@ It&#39;s the QR code from the poster. Small, sharp, and impossibly real.
         &lt;/div&gt;
     &lt;/div&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Out Of Attempts" tags="" position="2725,475" size="100,100">&lt;p&gt;You&#39;ve run out of time to investigate. The image of the strange machine seems to solidify in the painting, becoming a permanent part of the past.&lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Neutral Ending" tags="" position="3900,350" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/linkin.mp3&quot;);&lt;/script&gt;
+&lt;p&gt;The room is dark and you hear a strange noise...&lt;/p&gt;
+You step into the archives. Rows upon rows of ancient books and scrolls line the walls, but your attention is drawn to the center of the room.
+
+There, floating above a terminal, is the Artisan.
+
+&lt;div style=&quot;margin-top: 2px; text-align: center;&quot;&gt;
+    &lt;img src=&quot;assets/images/escape.png&quot; alt=&quot;Artisan Escaping&quot; style=&quot;max-width: 100%; height: auto;&quot;&gt;
+&lt;/div&gt;
+
+It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure data, glitching and dissolving at the edges like a corrupted video file. It escapes before your eyes. Strangely though, everything feels normal, until you see $guideName.
+
+[[What happens now?]]</tw-passagedata><tw-passagedata pid="28" name="Out Of Attempts" tags="" position="2725,475" size="100,100">&lt;p&gt;You&#39;ve run out of time to investigate. The image of the strange machine seems to solidify in the painting, becoming a permanent part of the past.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;$guideName:&lt;/strong&gt; &quot;It&#39;s too late. The anomaly is now part of the timeline. We have failed here and must move on before the paradox spreads.&quot;&lt;/p&gt;
 &lt;p&gt;&lt;i&gt;(You did not gain a point.)&lt;/i&gt;&lt;/p&gt;
 [[Proceed to the next puzzle]]
 (if: $guide is &quot;male&quot;)[&lt;audio src=&quot;assets/audio/hunter3.2.mp3&quot; autoplay&gt;&lt;/audio&gt;]
-(else:)[&lt;audio src=&quot;assets/audio/lady3.2.mp3&quot; autoplay&gt;&lt;/audio&gt;]</tw-passagedata><tw-passagedata pid="27" name="Password Correct" tags="" position="3075,125" size="100,100">&lt;audio src=&quot;assets/audio/success.mp3&quot; autoplay&gt;&lt;/audio&gt;
+(else:)[&lt;audio src=&quot;assets/audio/lady3.2.mp3&quot; autoplay&gt;&lt;/audio&gt;]</tw-passagedata><tw-passagedata pid="29" name="Password Correct" tags="" position="3075,125" size="100,100">&lt;audio src=&quot;assets/audio/success.mp3&quot; autoplay&gt;&lt;/audio&gt;
 (set: $anomalyScore to $anomalyScore + 1)
 &lt;p&gt;As you type &#39;Power guards this palace&#39; into your temporal device, you hear a soft chime. A nearby door, previously unnoticed, glows faintly.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;$guideName:&lt;/strong&gt; &quot;The code is accepted. You have a keen eye for fractured data. Well done.&quot;&lt;/p&gt;
@@ -489,15 +522,13 @@ It&#39;s the QR code from the poster. Small, sharp, and impossibly real.
 [[Learn More About the History of the Building]]
 
 (if: $guide is &quot;male&quot;)[&lt;audio src=&quot;assets/audio/hunter7.2.mp3&quot; autoplay&gt;&lt;/audio&gt;]
-(else:)[&lt;audio src=&quot;assets/audio/lady7.2.mp3&quot; autoplay&gt;&lt;/audio&gt;]
-
-</tw-passagedata><tw-passagedata pid="28" name="Password Failed" tags="" position="3150,600" size="100,100">&lt;p&gt;After your third failed attempt, the terminal flashes red and the glitched words fade back into the normal text, the lock now permanent.&lt;/p&gt;
+(else:)[&lt;audio src=&quot;assets/audio/lady7.2.mp3&quot; autoplay&gt;&lt;/audio&gt;]</tw-passagedata><tw-passagedata pid="30" name="Password Failed" tags="" position="3150,600" size="100,100">&lt;p&gt;After your third failed attempt, the terminal flashes red and the glitched words fade back into the normal text, the lock now permanent.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;$guideName:&lt;/strong&gt; &quot;The lock has sealed itself. A shame. There must be another way around. We have wasted enough time here.&quot;&lt;/p&gt;
 [[Enter the archives]]
 [[Learn More About the History of the Building]]
 
 (if: $guide is &quot;male&quot;)[&lt;audio src=&quot;assets/audio/hunter7.1.mp3&quot; autoplay&gt;&lt;/audio&gt;]
-(else:)[&lt;audio src=&quot;assets/audio/lady7.1.mp3&quot; autoplay&gt;&lt;/audio&gt;]</tw-passagedata><tw-passagedata pid="29" name="Password Try Again" tags="" position="3125,300" size="100,100">(set: $clickAttempts to 1)
+(else:)[&lt;audio src=&quot;assets/audio/lady7.1.mp3&quot; autoplay&gt;&lt;/audio&gt;]</tw-passagedata><tw-passagedata pid="31" name="Password Try Again" tags="" position="3125,300" size="100,100">(set: $clickAttempts to 1)
 
 (if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
 (else:)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/doglady.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
@@ -540,7 +571,7 @@ It&#39;s the QR code from the poster. Small, sharp, and impossibly real.
 
 (if: $puzzleFeedback is not &quot;&quot;)[
     &lt;p style=&quot;text-align:center; color:red;&quot;&gt;&#39;&#39;$puzzleFeedback&#39;&#39;&lt;/p&gt;
-]&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="30" name="Proceed to the next puzzle" tags="" position="2800,300" size="100,100">&lt;div style=&quot;text-align: center; padding-top: 5vh;&quot;&gt;
+]&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="32" name="Proceed to the next puzzle" tags="" position="2800,300" size="100,100">&lt;div style=&quot;text-align: center; padding-top: 5vh;&quot;&gt;
 
     &lt;div style=&quot;width: 50%; max-width: 200px; margin: 0 auto 20px auto;&quot;&gt;
         (if: $guide is &quot;male&quot;)[
@@ -570,7 +601,7 @@ It&#39;s the QR code from the poster. Small, sharp, and impossibly real.
          [[We have to protect the archives!-&gt;Puzzle2]]
     &lt;/div&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="Puzzle2" tags="" position="2975,300" size="100,100">(set: $clickAttempts to 2)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Puzzle2" tags="" position="2975,300" size="100,100">(set: $clickAttempts to 2)
 
 (if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;&lt;audio src=&quot;assets/audio/hunter6.mp3&quot; autoplay&gt;&lt;/audio&gt;]
 (else:)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/doglady.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;&lt;audio src=&quot;assets/audio/lady6.mp3&quot; autoplay&gt;&lt;/audio&gt;]
@@ -613,11 +644,11 @@ It&#39;s the QR code from the poster. Small, sharp, and impossibly real.
 
 (if: $puzzleFeedback is not &quot;&quot;)[
     &lt;p style=&quot;text-align:center; color:red;&quot;&gt;&#39;&#39;$puzzleFeedback&#39;&#39;&lt;/p&gt;
-]</tw-passagedata><tw-passagedata pid="32" name="Step back from the poster. You&#39;re just here for a quiet day at the museum." tags="" position="1100,500" size="100,100">You shake your head and take a step back. &quot;Not my business,&quot; you decide. A secret mission is the last thing you want on your quiet afternoon off. You&#39;re here to see the art, and that&#39;s exactly what you&#39;ll do.
+]</tw-passagedata><tw-passagedata pid="34" name="Step back from the poster. You&#39;re just here for a quiet day at the museum." tags="" position="1100,500" size="100,100">You shake your head and take a step back. &quot;Not my business,&quot; you decide. A secret mission is the last thing you want on your quiet afternoon off. You&#39;re here to see the art, and that&#39;s exactly what you&#39;ll do.
 
 You spend the next few hours wandering through the grand halls of the museum. You admire the intricate woodcarvings in the furniture exhibits, study the early examples of industrial machinery, and appreciate the beautiful frescoes on the high ceilings. It&#39;s a wonderful, peaceful day.
 
-[[As evening approaches...]]</tw-passagedata><tw-passagedata pid="33" name="Success Display" tags="" position="2600,300" size="100,100">&lt;audio src=&quot;assets/audio/success.mp3&quot; autoplay&gt;&lt;/audio&gt;
+[[As evening approaches...]]</tw-passagedata><tw-passagedata pid="35" name="Success Display" tags="" position="2600,300" size="100,100">&lt;audio src=&quot;assets/audio/success.mp3&quot; autoplay&gt;&lt;/audio&gt;
 
 (if: $guide is &quot;male&quot;)[
     &lt;div style=&quot;width: 200px;&quot;&gt;
@@ -647,7 +678,7 @@ You spend the next few hours wandering through the grand halls of the museum. Yo
 &lt;div style=&quot;text-align: center;&quot;&gt;
     [[Proceed to the next puzzle]]
     [[Learn more about the painting]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="34" name="The Team Behind It" tags="" position="4925,200" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="36" name="The Team Behind It" tags="" position="4925,200" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
 
     &lt;!-- Logo --&gt;
     &lt;div style=&quot;margin-bottom: 30px;&quot;&gt;
@@ -686,7 +717,7 @@ You spend the next few hours wandering through the grand halls of the museum. Yo
         &lt;p&gt;(link:&quot;Play Again?&quot;)[(reload:)]&lt;/p&gt;
     &lt;/div&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="Use your phone to scan the QR code." tags="" position="1300,200" size="100,100">You glance around. The few other visitors in the hall are absorbed in the grand paintings on the walls. No one is paying you any attention.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="Use your phone to scan the QR code." tags="" position="1300,200" size="100,100">You glance around. The few other visitors in the hall are absorbed in the grand paintings on the walls. No one is paying you any attention.
 
 You discreetly pull out your smartphone, open a scanner app, and point it at the QR code.
 
@@ -703,20 +734,7 @@ You quickly lock your phone and slip it back into your pocket, your heart poundi
 
 You have your objective.
 
-[[Find the mysterious &quot;friend&quot; in the portrait room..]]</tw-passagedata><tw-passagedata pid="36" name="Neutral Ending" tags="" position="3900,350" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/linkin.mp3&quot;);&lt;/script&gt;
-&lt;p&gt;The room is dark and you hear a strange noise...&lt;/p&gt;
-You step into the archives. Rows upon rows of ancient books and scrolls line the walls, but your attention is drawn to the center of the room.
-
-There, floating above a terminal, is the Artisan.
-
-&lt;div style=&quot;margin-top: 2px; text-align: center;&quot;&gt;
-    &lt;img src=&quot;assets/images/escape.png&quot; alt=&quot;Artisan Escaping&quot; style=&quot;max-width: 100%; height: auto;&quot;&gt;
-&lt;/div&gt;
-
-It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure data, glitching and dissolving at the edges like a corrupted video file. It escapes before your eyes. Strangely though, everything feels normal, until you see $guideName.
-
-[[What happens now?]]
-</tw-passagedata><tw-passagedata pid="37" name="What happens now?" tags="" position="4175,350" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
+[[Find the mysterious &quot;friend&quot; in the portrait room..]]</tw-passagedata><tw-passagedata pid="38" name="What happens now?" tags="" position="4175,350" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
 
     &lt;p&gt;You find yourself back in the sculpture wing, standing before the two portraits that flanked the &#39;Lamentation&#39;.&lt;/p&gt;
 
@@ -742,24 +760,6 @@ It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure dat
     &lt;div style=&quot;margin-top: 30px;&quot;&gt;
         [[...you wake up, not having fixed everything and confused..-&gt;Go On]]
  &lt;p&gt;(link:&quot;Find the Strength, Try Again&quot;)[(reload:)]&lt;/p&gt;
-    &lt;/div&gt;
-
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="38" name="Bad Ending" tags="" position="3925,525" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/badending.mp3&quot;);&lt;/script&gt;
-
-&lt;div style=&quot;text-align: center; padding: 5vh 2em 0 2em;&quot;&gt;
-
-    &lt;p&gt;The world around you glitches violently, and the air grows heavy and still.&lt;/p&gt;
-    &lt;img src=&quot;assets/images/corrupt.png&quot; alt=&quot;The timeline has been corrupted by the Artisan.&quot; style=&quot;max-width: 500px; width: 100%; border: 2px solid darkred; margin: 15px 0;&quot;&gt;
-
-    &lt;div class=&quot;text-box&quot; style=&quot;max-width: 600px; margin: 20px auto;&quot;&gt;
-        &lt;strong&gt;$guideName:&lt;/strong&gt;
-        &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;We&#39;re too late... we should have been more careful. The Artisan has reached its full power.&quot;&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;p style=&quot;margin-top: 20px; font-style: italic;&quot;&gt;&quot;Come on, Time Detective. Take us back. Try again.&quot;&lt;/p&gt;
-
-    &lt;div style=&quot;margin-top: 30px; font-size: 1.2em;&quot;&gt;
-        (link: &quot;Use your temporal device to go back in time&quot;)[(reload:)]
     &lt;/div&gt;
 
 &lt;/div&gt;</tw-passagedata></tw-storydata>
