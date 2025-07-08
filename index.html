@@ -47,6 +47,53 @@ tw-passage {
 tw-story[data-tags~="grayscale-ending"] {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%); 
+}
+
+/* --- Responsive Three-Column Layout --- */
+
+/* This is the MOBILE style first (default) */
+.responsive-three-column {
+  display: flex;
+  flex-direction: column; /* Stack columns vertically on mobile */
+  align-items: center;    /* Center them on the page */
+  gap: 20px;
+}
+
+.responsive-three-column .column-left {
+  width: 50%;
+  max-width: 200px; /* Portrait won't get too big on mobile */
+}
+
+.responsive-three-column .column-center {
+  width: 100%;
+}
+
+.responsive-three-column .column-right {
+  width: 80%;
+  max-width: 300px; /* Titan image won't get too big */
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .responsive-three-column {
+    flex-direction: row;   /* "...change to a side-by-side row..." */
+    align-items: flex-start; /* "...and align them to the top." */
+  }
+
+  .responsive-three-column .column-left {
+    flex: 0 0 200px; /* Fixed width of 200px on desktop */
+    width: auto;
+  }
+
+  .responsive-three-column .column-center {
+    flex: 1; /* Take up the remaining space */
+    width: auto;
+  }
+  
+  .responsive-three-column .column-right {
+    flex: 0 0 300px; /* Fixed width of 300px on desktop */
+    width: auto;
+  }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// This code will run only once when the game starts.
 if (window.BGM === undefined) {
 
@@ -357,9 +404,9 @@ Suddenly, your phone starts to emit a small temporal beam!
 &lt;p&gt;The two women are wearing typical 17th-century servant&#39;s attire. Nothing seems out of place here.&lt;/p&gt;
 [[This looks normal. Go back.-&gt;Handle Wrong Choice]]
 
-&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="22" name="Learn More About the History of the Building" tags="" position="3300,275" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
+&lt;audio src=&quot;assets/audio/error.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="22" name="Learn More About the History of the Building" tags="" position="3300,275" size="100,100">&lt;div class=&quot;responsive-three-column&quot;&gt;
 
-    &lt;div style=&quot;flex: 0 0 200px;&quot;&gt;
+    &lt;div class=&quot;column-left&quot;&gt;
         (if: $guide is &quot;male&quot;)[
             &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%;&quot;&gt;
         ]
@@ -368,30 +415,33 @@ Suddenly, your phone starts to emit a small temporal beam!
         ]
     &lt;/div&gt;
 
-    &lt;div style=&quot;flex: 1;&quot;&gt;
+    &lt;div class=&quot;column-center&quot;&gt;
         &lt;div class=&quot;text-box&quot;&gt;
             &lt;strong&gt;$guideName:&lt;/strong&gt;
             (if: $guide is &quot;male&quot;)[
                 &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;These statues... impressive, but this isn&#39;t my area of expertise. The Archivist would know the sculptors&#39; names by heart. What I can tell you is that they&#39;re called &#39;telamones&#39;—titans. They were built to show the world how powerful the Bargellini family was, strong enough to bear the weight of a palace.&quot;
                 &lt;br&gt;&lt;br&gt;
                 &quot;The locals have called them the &#39;Giants of Strada Maggiore&#39; for centuries. To me, they&#39;re simply guards. A warning to those who would enter. Let&#39;s move on.&quot;&lt;/p&gt;
-&lt;audio src=&quot;assets/audio/hunter8.mp3&quot; autoplay&gt;&lt;/audio&gt;
+                &lt;audio src=&quot;assets/audio/hunter8.mp3&quot; autoplay&gt;&lt;/audio&gt;
             ]
             (else:)[
                 &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;Ah, the &#39;Giganti&#39;. A fascinating example of high Baroque sculpture from around 1658. A common misconception is that they are a matched pair, but they were created by two different artists: the one on the left is by Gabriele Brunelli, and the one on the right by Francesco Agnesini.&quot;
-          &lt;audio src=&quot;assets/audio/lady8.mp3&quot; autoplay&gt;&lt;/audio&gt;  ]
+                &lt;br&gt;&lt;br&gt;
+                &quot;Interestingly, they are carved from *macigno* sandstone, a poor choice for outdoor work as it erodes easily. Their worn appearance isn&#39;t just due to age, but a long battle with the elements—a flaw in their very foundation.&quot;&lt;/p&gt;
+                &lt;audio src=&quot;assets/audio/lady8.mp3&quot; autoplay&gt;&lt;/audio&gt;
+            ]
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div style=&quot;flex: 0 0 300px; text-align: center;&quot;&gt;
-         &lt;img src=&quot;assets/images/titans.jpg&quot; alt=&quot;The two titan statues at the entrance of the museum.&quot; style=&quot;width: 100%;&quot;&gt;
+    &lt;div class=&quot;column-right&quot;&gt;
+        &lt;img src=&quot;assets/images/titans.jpg&quot; alt=&quot;The two titan statues at the entrance of the museum.&quot; style=&quot;width: 100%;&quot;&gt;
         &lt;p style=&quot;font-style: italic; color: #ccc;&quot;&gt;The &#39;Giganti&#39; of Strada Maggiore&lt;/p&gt;
     &lt;/div&gt;
 
 &lt;/div&gt;
 
 &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
-    [[Go on]]
+    [[Enter the Archives]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Learn more about the painting" tags="" position="2700,100" size="100,100">(if: $guide is &quot;male&quot;)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/hunterportrait.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
 (else:)[&lt;div style=&quot;width:120px;&quot;&gt;&lt;img src=&quot;assets/images/doglady.png&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;]
 
@@ -502,7 +552,7 @@ It&#39;s the QR code from the poster. Small, sharp, and impossibly real.
     &lt;/div&gt;
   (if: $guide is &quot;female&quot;)[
   &lt;div class=&quot;text-box&quot; style=&quot;margin-top:20px; border:2px solid yellow;&quot;&gt;
-        &lt;strong style=&quot;color:yellow;&quot;&gt;Hunter Bonus Hint:&lt;/strong&gt;
+        &lt;strong style=&quot;color:yellow;&quot;&gt;Archivist Bonus Hint:&lt;/strong&gt;
         &lt;p style=&quot;margin:0;&quot;&gt;Bargellini Palace was always under the protection of titan strength, how could artisan damage it so much?.&lt;/p&gt;
     &lt;/div&gt;
 ]
@@ -685,8 +735,8 @@ There, floating above a terminal, is the Artisan.
 
 It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure data, glitching and dissolving at the edges like a corrupted video file. It escapes before your eyes. Strangely though, everything feels normal, until you see $guideName.
 
-[[AI Messed up]]
-</tw-passagedata><tw-passagedata pid="37" name="AI Messed up" tags="" position="4175,350" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
+[[What happens now?]]
+</tw-passagedata><tw-passagedata pid="37" name="What happens now?" tags="" position="4175,350" size="100,100">&lt;div style=&quot;text-align: center; padding: 2em;&quot;&gt;
 
     &lt;p&gt;You find yourself back in the sculpture wing, standing before the two portraits that flanked the &#39;Lamentation&#39;.&lt;/p&gt;
 
@@ -714,7 +764,9 @@ It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure dat
  &lt;p&gt;(link:&quot;Find the Strength, Try Again&quot;)[(reload:)]&lt;/p&gt;
     &lt;/div&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="38" name="Bad Ending" tags="" position="3925,525" size="100,100">&lt;div style=&quot;text-align: center; padding: 5vh 2em 0 2em;&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="38" name="Bad Ending" tags="" position="3925,525" size="100,100">&lt;script&gt;changeBGM(&quot;assets/audio/badending.mp3&quot;);&lt;/script&gt;
+
+&lt;div style=&quot;text-align: center; padding: 5vh 2em 0 2em;&quot;&gt;
 
     &lt;p&gt;The world around you glitches violently, and the air grows heavy and still.&lt;/p&gt;
     &lt;img src=&quot;assets/images/corrupt.png&quot; alt=&quot;The timeline has been corrupted by the Artisan.&quot; style=&quot;max-width: 500px; width: 100%; border: 2px solid darkred; margin: 15px 0;&quot;&gt;
@@ -730,7 +782,7 @@ It isn&#39;t a machine of metal and wires, but a humanoid shape made of pure dat
         (link: &quot;Use your temporal device to go back in time&quot;)[(reload:)]
     &lt;/div&gt;
 
-&lt;/div&gt;</tw-passagedata></tw-storydata>
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="39" name="Enter the Archives" tags="" position="3300,400" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
