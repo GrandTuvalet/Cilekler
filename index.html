@@ -49,51 +49,31 @@ tw-story[data-tags~="grayscale-ending"] {
   -webkit-filter: grayscale(100%); 
 }
 
-/* --- Responsive Three-Column Layout --- */
 
-/* This is the MOBILE style first (default) */
+
+
 .responsive-three-column {
   display: flex;
-  flex-direction: column; /* Stack columns vertically on mobile */
-  align-items: center;    /* Center them on the page */
+  flex-direction: column; 
+  align-items: center;    
   gap: 20px;
 }
+.responsive-three-column .column-left { width: 50%; max-width: 200px; }
+.responsive-three-column .column-center { width: 100%; }
+.responsive-three-column .column-right { width: 80%; max-width: 300px; text-align: center; }
 
-.responsive-three-column .column-left {
-  width: 50%;
-  max-width: 200px; /* Portrait won't get too big on mobile */
-}
 
-.responsive-three-column .column-center {
-  width: 100%;
-}
-
-.responsive-three-column .column-right {
-  width: 80%;
-  max-width: 300px; /* Titan image won't get too big */
-  text-align: center;
-}
 
 @media (min-width: 768px) {
   .responsive-three-column {
-    flex-direction: row;   /* "...change to a side-by-side row..." */
-    align-items: flex-start; /* "...and align them to the top." */
+    flex-direction: row;     by-side */
+    align-items: flex-start;  
   }
 
-  .responsive-three-column .column-left {
-    flex: 0 0 200px; /* Fixed width of 200px on desktop */
-    width: auto;
-  }
-
-  .responsive-three-column .column-center {
-    flex: 1; /* Take up the remaining space */
-    width: auto;
-  }
-  
-  .responsive-three-column .column-right {
-    flex: 0 0 300px; /* Fixed width of 300px on desktop */
-    width: auto;
-  }
+ 
+  .responsive-three-column .column-left { flex: 0 0 200px; }
+  .responsive-three-column .column-center { flex: 1; }
+  .responsive-three-column .column-right { flex: 0 0 300px; }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// This code will run only once when the game starts.
 if (window.BGM === undefined) {
 
