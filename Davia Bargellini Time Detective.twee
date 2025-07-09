@@ -93,6 +93,12 @@ The museum begins to close for the evening, and you head for the exit, feeling c
     <div class="text-box" style="max-width: 600px; margin: 20px auto;">
         <strong>$guideName:</strong>
         <p style="margin-top:5px; margin-bottom:0;">"We're too late... we should have been more careful. The Artisan has reached its full power."</p>
+          (if: $guide is "male")[
+           <audio src="assets/audio/hunterbadfinal.mp3" autoplay></audio>
+       ]
+        (else:)[
+ <audio src="assets/audio/ladybadfinal.mp3" autoplay></audio>
+        ]
     </div>
     
     <p style="margin-top: 20px; font-style: italic;">"Come on, Time Detective. Take us back. Try again."</p>
@@ -288,9 +294,9 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
 
 
 :: Go on {"position":"3500,250","size":"100,100"}
-<div style="display: flex; align-items: flex-start; gap: 20px;">
+<div class="responsive-three-column">
 
-    <div style="flex: 0 0 200px;">
+   <div class="column-left">
         (if: $guide is "male")[
             <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%;">
         ]
@@ -299,13 +305,11 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
         ]
     </div>
 
-    <div style="flex: 1;">
+    <div class="column-center">
         <div class="text-box">
             <strong>$guideName:</strong>
             (if: $guide is "male")[
-                <p style="margin-top:5px; margin-bottom:0;">"These statues... impressive, but this isn't my area of expertise. The Archivist would know the sculptors' names by heart. What I can tell you is that they're called 'telamones'—titans. They were built to show the world how powerful the Bargellini family was, strong enough to bear the weight of a palace."
-                <br><br>
-                "The locals have called them the 'Giants of Strada Maggiore' for centuries. To me, they're simply guards. A warning to those who would enter. Let's move on."</p> <audio src="assets/audio/hunter8.mp3" autoplay></audio>
+            (goto: "Enter the archives")   
             ]
             (else:)[
                 <p style="margin-top:5px; margin-bottom:0;">
@@ -316,8 +320,8 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
         </div>
     </div>
 
-    <div style="flex: 0 0 300px; text-align: center;">
-         <img src="assets/images/titans.jpg" alt="The two titan statues at the entrance of the museum." style="width: 100%;">
+     <div class="column-right">
+        <img src="assets/images/titans.jpg" alt="The two titan statues at the entrance of the museum." style="width: 100%;">
         <p style="font-style: italic; color: #ccc;">The 'Giganti' of Strada Maggiore</p>
     </div>
 

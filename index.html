@@ -167,6 +167,12 @@ The receptionist nods. &quot;Thank you, $playerName. Please, enjoy your visit.&q
     &lt;div class=&quot;text-box&quot; style=&quot;max-width: 600px; margin: 20px auto;&quot;&gt;
         &lt;strong&gt;$guideName:&lt;/strong&gt;
         &lt;p style=&quot;margin-top:5px; margin-bottom:0;&quot;&gt;&quot;We&#39;re too late... we should have been more careful. The Artisan has reached its full power.&quot;&lt;/p&gt;
+          (if: $guide is &quot;male&quot;)[
+           &lt;audio src=&quot;assets/audio/hunterbadfinal.mp3&quot; autoplay&gt;&lt;/audio&gt;
+       ]
+        (else:)[
+ &lt;audio src=&quot;assets/audio/ladybadfinal.mp3&quot; autoplay&gt;&lt;/audio&gt;
+        ]
     &lt;/div&gt;
     
     &lt;p style=&quot;margin-top: 20px; font-style: italic;&quot;&gt;&quot;Come on, Time Detective. Take us back. Try again.&quot;&lt;/p&gt;
