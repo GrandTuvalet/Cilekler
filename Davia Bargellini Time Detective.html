@@ -326,9 +326,9 @@ Your mind reels. A dream? You look frantically around the hall. Everything is pe
 
 Confused, and with a strange sense of loss, you thank the guard and head for the exit.
 
-[[Leave the museum]]</tw-passagedata><tw-passagedata pid="15" name="Go on" tags="" position="3500,250" size="100,100">&lt;div style=&quot;display: flex; align-items: flex-start; gap: 20px;&quot;&gt;
+[[Leave the museum]]</tw-passagedata><tw-passagedata pid="15" name="Go on" tags="" position="3500,250" size="100,100">&lt;div class=&quot;responsive-three-column&quot;&gt;
 
-    &lt;div style=&quot;flex: 0 0 200px;&quot;&gt;
+   &lt;div class=&quot;column-left&quot;&gt;
         (if: $guide is &quot;male&quot;)[
             &lt;img src=&quot;assets/images/hunterportrait.png&quot; alt=&quot;The Hunter&quot; style=&quot;width: 100%;&quot;&gt;
         ]
@@ -337,7 +337,7 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
         ]
     &lt;/div&gt;
 
-    &lt;div style=&quot;flex: 1;&quot;&gt;
+    &lt;div class=&quot;column-center&quot;&gt;
         &lt;div class=&quot;text-box&quot;&gt;
             &lt;strong&gt;$guideName:&lt;/strong&gt;
             (if: $guide is &quot;male&quot;)[
@@ -352,8 +352,8 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div style=&quot;flex: 0 0 300px; text-align: center;&quot;&gt;
-         &lt;img src=&quot;assets/images/titans.jpg&quot; alt=&quot;The two titan statues at the entrance of the museum.&quot; style=&quot;width: 100%;&quot;&gt;
+     &lt;div class=&quot;column-right&quot;&gt;
+        &lt;img src=&quot;assets/images/titans.jpg&quot; alt=&quot;The two titan statues at the entrance of the museum.&quot; style=&quot;width: 100%;&quot;&gt;
         &lt;p style=&quot;font-style: italic; color: #ccc;&quot;&gt;The &#39;Giganti&#39; of Strada Maggiore&lt;/p&gt;
     &lt;/div&gt;
 
