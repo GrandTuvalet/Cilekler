@@ -12,11 +12,11 @@ Davia Bargellini Time Detective
     "white-out": "none",
     "grayscale-ending": "purple"
   },
-  "zoom": 1
+  "zoom": 0.3
 }
 
 
-:: Anomaly Fixer {"position":"2100,200","size":"100,100"}
+:: Anomaly Fixer {"position":"2200,200","size":"100,100"}
 (if:visits is 1)[(set: $KITCHEN_ATTEMPTS to 2)]
 (if: $guide is "male")[<div style="width:200px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div><audio src="assets/audio/hunter2.1.mp3" autoplay></audio>]
 (else:)[<div style="width:200px;"><img src="assets/images/doglady.png" style="width:100%;"><audio src="assets/audio/lady2.mp3" autoplay></audio></div>]
@@ -48,7 +48,7 @@ Davia Bargellini Time Detective
 ]
 
 
-:: Approach the portrait of the man. {"position":"1900,300","size":"100,100"}
+:: Approach the portrait of the man. {"position":"1800,400","size":"100,100"}
 (set: $guide to "male")
 (set: $guideName to "The Hunter")
 (set: $guidePronoun to "he")
@@ -58,7 +58,7 @@ Davia Bargellini Time Detective
 (goto: "First Anomaly")
 
 
-:: Approach the portrait of the woman. {"position":"1900,100","size":"100,100"}
+:: Approach the portrait of the woman. {"position":"1800,0","size":"100,100"}
 (set: $guide to "female")
 (set: $guideName to "The Archivist")
 (set: $guidePronoun to "she")
@@ -82,7 +82,7 @@ The museum begins to close for the evening, and you head for the exit, feeling c
 [[Maybe you should have looked closer.->Examine the poster]]
 
 
-:: Bad Ending {"position":"3925,525","size":"100,100"}
+:: Bad Ending {"position":"3900,500","size":"100,100"}
 <script>changeBGM("assets/audio/badending.mp3");</script>
 
 <div style="text-align: center; padding: 5vh 2em 0 2em;">
@@ -110,7 +110,7 @@ The museum begins to close for the evening, and you head for the exit, feeling c
 </div>
 
 
-:: Credits Paintings {"position":"4800,200","size":"100,100"}
+:: Credits Paintings {"position":"4700,200","size":"100,100"}
 <div style="text-align: center; padding: 2em;">
 
     <h2>Artworks Featured as Guides</h2>
@@ -153,7 +153,7 @@ You arrive at the grand entrance, pushing open the heavy oak doors. A receptioni
 [[Approach the reception desk to sign in]]
 
 
-:: Enter the archives {"position":"3725,275","size":"100,100"}
+:: Enter the archives {"position":"3700,300","size":"100,100"}
 (if: $anomalyScore is 2)[
     (goto: "Good Ending")
 ]
@@ -182,7 +182,7 @@ What do you do?
 (if:visits is 1)[[Step back from the poster. You're just here for a quiet day at the museum.]]
 
 
-:: Final Goodbye {"position":"4125,200","size":"100,100"}
+:: Final Goodbye {"position":"4100,200","size":"100,100"}
 <div style="text-align:center; padding-top: 15vh;">
 As
     <div style="width: 40%; max-width: 200px; margin: 0 auto 20px auto;">
@@ -232,7 +232,7 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 <audio src="assets/audio/help2.mp3" autoplay></audio>
 
 
-:: First Anomaly {"position":"1950,200","size":"100,100"}
+:: First Anomaly {"position":"1900,200","size":"100,100"}
 (if: $guide is "male")[
     <div style="width: 300px; margin: 0 auto;">
         <img src="assets/images/hunterportrait.png" alt="The Hunter" style="width: 100%; border-radius: 5px; border: 0px solid #E6D8AD;">
@@ -279,7 +279,7 @@ It's your name. Both portraits are calling to you. They are the contacts. You mu
 </div>
 
 
-:: Go On {"position":"4325,200","size":"100,100"}
+:: Go On {"position":"4300,200","size":"100,100"}
 The world dissolves in a flash of light... and then reforms with a jolt.
 
 You feel a gentle tap on your shoulder and turn to see a museum guard looking at you with concern.
@@ -293,7 +293,7 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
 [[Leave the museum]]
 
 
-:: Go on {"position":"3500,250","size":"100,100"}
+:: Go on {"position":"3500,300","size":"100,100"}
 <div class="responsive-three-column">
 
    <div class="column-left">
@@ -332,7 +332,7 @@ Confused, and with a strange sense of loss, you thank the guard and head for the
 </div>
 
 
-:: Good Ending {"position":"3850,150","size":"100,100"}
+:: Good Ending {"position":"3925,100","size":"100,100"}
 <script>changeBGM("assets/audio/linkin.mp3");</script>
 
 <p>The room is dark and you hear a strange noise...</p>
@@ -352,12 +352,12 @@ Suddenly, your phone starts to emit a small temporal beam!
 [[Final Goodbye]]
 
 
-:: Handle Correct Choice {"position":"2425,450","size":"100,100"}
+:: Handle Correct Choice {"position":"2500,600","size":"100,100"}
 (set: $anomalyScore to $anomalyScore + 1)
 (goto: "Success Display")
 
 
-:: Handle Wrong Choice {"position":"2050,500","size":"100,100"}
+:: Handle Wrong Choice {"position":"2200,600","size":"100,100"}
 (set: $KITCHEN_ATTEMPTS to $KITCHEN_ATTEMPTS - 1)
 
 (if: $KITCHEN_ATTEMPTS is 1 and $guide is "male")[
@@ -372,13 +372,13 @@ Suddenly, your phone starts to emit a small temporal beam!
 ]
 
 
-:: Investigate the counter {"position":"2425,325","size":"100,100"}
+:: Investigate the counter {"position":"2500,200","size":"100,100"}
 <img src="assets/images/counter.png" style="width:100%;">
 <p>You focus on the counter and see it clearly: a modern, metallic (text-colour:yellow)[washing machine] with buttons and lights. This is completely out of place!</p>
 [[This is it! The anomaly!->Handle Correct Choice]]
 
 
-:: Investigate the fireplace {"position":"2287.5,325","size":"100,100"}
+:: Investigate the fireplace {"position":"2400,400","size":"100,100"}
 <img src="assets/images/fireplace.png" style="width:100%;">
 <p>It's a large, brick fireplace, common for kitchens of this era. Nothing seems unusual.</p>
 [[This looks normal. Go back.->Handle Wrong Choice]]
@@ -386,7 +386,7 @@ Suddenly, your phone starts to emit a small temporal beam!
 <audio src="assets/audio/error.mp3" autoplay>
 
 
-:: Investigate the plates {"position":"2050,325","size":"100,100"}
+:: Investigate the plates {"position":"2000,400","size":"100,100"}
 <img src="assets/images/plates.png" style="width:100%;">
 <p>You look closely at the stack of plates. They seem perfectly appropriate for the time period.</p>
 [[This looks normal. Go back.->Handle Wrong Choice]]
@@ -394,7 +394,7 @@ Suddenly, your phone starts to emit a small temporal beam!
 <audio src="assets/audio/error.mp3" autoplay>
 
 
-:: Investigate the women {"position":"2162.5,325","size":"100,100"}
+:: Investigate the women {"position":"2200,400","size":"100,100"}
 <img src="assets/images/women.png" style="width:100%;">
 <p>The two women are wearing typical 17th-century servant's attire. Nothing seems out of place here.</p>
 [[This looks normal. Go back.->Handle Wrong Choice]]
@@ -402,7 +402,7 @@ Suddenly, your phone starts to emit a small temporal beam!
 <audio src="assets/audio/error.mp3" autoplay>
 
 
-:: Learn More About the History of the Building {"position":"3300,275","size":"100,100"}
+:: Learn More About the History of the Building {"position":"3300,300","size":"100,100"}
 <div class="responsive-three-column">
 
     <div class="column-left">
@@ -444,7 +444,7 @@ Suddenly, your phone starts to emit a small temporal beam!
 </div>
 
 
-:: Learn more about the painting {"position":"2700,100","size":"100,100"}
+:: Learn more about the painting {"position":"2725,100","size":"100,100"}
 (if: $guide is "male")[<div style="width:120px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div>]
 (else:)[<div style="width:120px;"><img src="assets/images/doglady.png" style="width:100%;"></div>]
 
@@ -469,7 +469,7 @@ Suddenly, your phone starts to emit a small temporal beam!
 </div>
 
 
-:: Leave the museum {"position":"4550,200","size":"100,100"}
+:: Leave the museum {"position":"4500,200","size":"100,100"}
 You walk out of the grand doors and into the evening light of Bologna. "What a strange day," you think to yourself, shaking your head to clear the last remnants of the vivid dream.
 
 You put your hand in your pocket, and your fingers touch a small, square piece of thick, old paper. You pull it out.
@@ -510,7 +510,7 @@ It's the QR code from the poster. Small, sharp, and impossibly real.
 </div>
 
 
-:: Neutral Ending {"position":"3900,350","size":"100,100"}
+:: Neutral Ending {"position":"3900,300","size":"100,100"}
 <script>changeBGM("assets/audio/linkin.mp3");</script>
 <p>The room is dark and you hear a strange noise...</p>
 You step into the archives. Rows upon rows of ancient books and scrolls line the walls, but your attention is drawn to the center of the room.
@@ -526,7 +526,7 @@ It isn't a machine of metal and wires, but a humanoid shape made of pure data, g
 [[What happens now?]]
 
 
-:: Out Of Attempts {"position":"2725,475","size":"100,100"}
+:: Out Of Attempts {"position":"2800,600","size":"100,100"}
 <p>You've run out of time to investigate. The image of the strange machine seems to solidify in the painting, becoming a permanent part of the past.</p>
 <p><strong>$guideName:</strong> "It's too late. The anomaly is now part of the timeline. We have failed here and must move on before the paradox spreads."</p>
 <p><i>(You did not gain a point.)</i></p>
@@ -535,7 +535,7 @@ It isn't a machine of metal and wires, but a humanoid shape made of pure data, g
 (else:)[<audio src="assets/audio/lady3.2.mp3" autoplay></audio>]
 
 
-:: Password Correct {"position":"3075,125","size":"100,100"}
+:: Password Correct {"position":"3100,100","size":"100,100"}
 <audio src="assets/audio/success.mp3" autoplay></audio>
 (set: $anomalyScore to $anomalyScore + 1)
 <p>As you type 'Power guards this palace' into your temporal device, you hear a soft chime. A nearby door, previously unnoticed, glows faintly.</p>
@@ -547,7 +547,7 @@ It isn't a machine of metal and wires, but a humanoid shape made of pure data, g
 (else:)[<audio src="assets/audio/lady7.2.mp3" autoplay></audio>]
 
 
-:: Password Failed {"position":"3150,600","size":"100,100"}
+:: Password Failed {"position":"3300,600","size":"100,100"}
 <p>After your third failed attempt, the terminal flashes red and the glitched words fade back into the normal text, the lock now permanent.</p>
 <p><strong>$guideName:</strong> "The lock has sealed itself. A shame. There must be another way around. We have wasted enough time here."</p>
 [[Enter the archives]]
@@ -557,7 +557,7 @@ It isn't a machine of metal and wires, but a humanoid shape made of pure data, g
 (else:)[<audio src="assets/audio/lady7.1.mp3" autoplay></audio>]
 
 
-:: Password Try Again {"position":"3125,300","size":"100,100"}
+:: Password Try Again {"position":"3100,600","size":"100,100"}
 (set: $clickAttempts to 1)
 
 (if: $guide is "male")[<div style="width:120px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div>]
@@ -604,7 +604,7 @@ It isn't a machine of metal and wires, but a humanoid shape made of pure data, g
 ]<audio src="assets/audio/error.mp3" autoplay>
 
 
-:: Proceed to the next puzzle {"position":"2800,300","size":"100,100"}
+:: Proceed to the next puzzle {"position":"2800,400","size":"100,100"}
 <div style="text-align: center; padding-top: 5vh;">
 
     <div style="width: 50%; max-width: 200px; margin: 0 auto 20px auto;">
@@ -638,7 +638,7 @@ It isn't a machine of metal and wires, but a humanoid shape made of pure data, g
 </div>
 
 
-:: Puzzle2 {"position":"2975,300","size":"100,100"}
+:: Puzzle2 {"position":"3000,400","size":"100,100"}
 (set: $clickAttempts to 2)
 
 (if: $guide is "male")[<div style="width:120px;"><img src="assets/images/hunterportrait.png" style="width:100%;"></div><audio src="assets/audio/hunter6.mp3" autoplay></audio>]
@@ -693,7 +693,7 @@ You spend the next few hours wandering through the grand halls of the museum. Yo
 [[As evening approaches...]]
 
 
-:: Success Display {"position":"2600,300","size":"100,100"}
+:: Success Display {"position":"2600,400","size":"100,100"}
 <audio src="assets/audio/success.mp3" autoplay></audio>
 
 (if: $guide is "male")[
@@ -727,7 +727,7 @@ You spend the next few hours wandering through the grand halls of the museum. Yo
 </div>
 
 
-:: The Team Behind It {"position":"4925,200","size":"100,100"}
+:: The Team Behind It {"position":"4900,200","size":"100,100"}
 <div style="text-align: center; padding: 2em;">
 
     <!-- Logo -->
@@ -791,7 +791,7 @@ You have your objective.
 [[Find the mysterious "friend" in the portrait room..]]
 
 
-:: What happens now? {"position":"4175,350","size":"100,100"}
+:: What happens now? {"position":"4100,400","size":"100,100"}
 <div style="text-align: center; padding: 2em;">
 
     <p>You find yourself back in the sculpture wing, standing before the two portraits that flanked the 'Lamentation'.</p>
