@@ -28,8 +28,8 @@ This project was made possible with the help of various tools and by referencing
 *Music used is the property of its respective owners. No copyright infringement is intended.*
 
 ### Artwork & Image Sources
-* **The Hunter Portrait:** "A Sportsman with his Dogs" (c. 1730-40) by Giuseppe Maria Crespi
-* **The Archivist Portrait:** "Portrait of a Lady with a Dog" (c. 1726) by Rosalba Carriera
+* **The Hunter Portrait:** "Hunter " (c. 1740-45) by Luigi Crespi
+* **The Archivist Portrait:** "Portrait of a Lady with a Dog" (c. 1755) by Luigi Crespi 
 * **The Kitchen Anomaly Painting:** "The Larder" (*Dispensa con scena di cucina*) by Joseph Heintz the Younger
 * **The Titan Statues Image:** [Hadrian6 on Tumblr](https://hadrian6.tumblr.com/post/120897420152/telamon-portal-17thcentury-palazzo-davia)
 
